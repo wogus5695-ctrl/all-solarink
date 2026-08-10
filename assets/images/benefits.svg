@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" width="100%" height="100%">
+  <defs>
+    <!-- Background Radial Gradient -->
+    <radialGradient id="sun-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </radialGradient>
+    
+    <!-- Linear Gradients for UI elements -->
+    <linearGradient id="bar-green" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+    <linearGradient id="bar-blue" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0369A1" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Glow Background -->
+  <circle cx="250" cy="180" r="180" fill="url(#sun-glow)" />
+
+  <!-- Grid lines for architectural blueprint feel -->
+  <g stroke="#E2E8F0" stroke-width="0.7" opacity="0.6">
+    <line x1="50" y1="0" x2="50" y2="450" />
+    <line x1="150" y1="0" x2="150" y2="450" />
+    <line x1="250" y1="0" x2="250" y2="450" />
+    <line x1="350" y1="0" x2="350" y2="450" />
+    <line x1="450" y1="0" x2="450" y2="450" />
+    <line x1="0" y1="100" x2="500" y2="100" />
+    <line x1="0" y1="200" x2="500" y2="200" />
+    <line x1="0" y1="300" x2="500" y2="300" />
+    <line x1="0" y1="400" x2="500" y2="400" />
+  </g>
+
+  <!-- Glowing Sun/Eco Energy Icon -->
+  <g transform="translate(250, 100)">
+    <circle cx="0" cy="0" r="32" fill="#F8FAFC" stroke="#F59E0B" stroke-width="2" />
+    <circle cx="0" cy="0" r="26" fill="rgba(245, 158, 11, 0.1)" />
+    <!-- Sun Rays -->
+    <path d="M 0,-42 L 0,-36 M 0,36 L 0,42 M -42,0 L -36,0 M 36,0 L 42,0 M -28,-28 L -24,-24 M 24,24 L 28,28 M -28,28 L -24,24 M 24,-24 L 28,-28" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Eco Energy Leaf / Bolt Inside -->
+    <path d="M -5,12 L 8,-6 H -4 L 3,-16" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Factory/Warehouse Isometric Icon -->
+  <g transform="translate(80, 200)">
+    <path d="M 30,120 L 30,50 L 90,20 L 220,20 L 220,120 Z" fill="#0F172A" stroke="#334155" stroke-width="2"/>
+    <path d="M 30,50 L 90,20 L 150,50 L 150,120 M 90,20 L 90,120" fill="none" stroke="#334155" stroke-width="1.5"/>
+    
+    <!-- Solar Panels on Roof -->
+    <polygon points="38,47 88,22 142,47 92,72" fill="#1E293B" stroke="#0284C7" stroke-width="1"/>
+    <line x1="65" y1="35" x2="117" y2="60" stroke="#38BDF8" stroke-width="0.5"/>
+    <line x1="90" y1="22" x2="90" y2="72" stroke="#38BDF8" stroke-width="0.5"/>
+    
+    <!-- Windows and Doors -->
+    <rect x="50" y="85" width="20" height="20" fill="#1E293B" stroke="#334155" stroke-width="1" rx="1"/>
+    <rect x="170" y="70" width="35" height="50" fill="#0284C7" opacity="0.3" stroke="#334155" stroke-width="1.5"/>
+  </g>
+
+  <!-- Data / Savings Graph (Visualizing utility drop and asset growth) -->
+  <g transform="translate(320, 200)">
+    <!-- Card Frame -->
+    <rect x="-20" y="-10" width="160" height="150" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.03))"/>
+    
+    <!-- Graph Lines -->
+    <path d="M -5,110 L 30,95 L 65,115 L 100,70 L 135,45" fill="none" stroke="url(#bar-blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M -5,90 L 30,60 L 65,40 L 100,25 L 135,10" fill="none" stroke="url(#bar-green)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2, 2" opacity="0.8"/>
+    
+    <!-- Intersect Dots -->
+    <circle cx="100" cy="25" r="4" fill="#10B981" />
+    <circle cx="135" cy="45" r="4" fill="#0284C7" />
+    
+    <!-- Small labels -->
+    <text x="-5" y="130" font-family="'Outfit', sans-serif" font-size="9" fill="#94A3B8" font-weight="600">CAPEX</text>
+    <text x="90" y="130" font-family="'Outfit', sans-serif" font-size="9" fill="#10B981" font-weight="600">SAVINGS</text>
+  </g>
+
+  <!-- Connecting energy flows -->
+  <path d="M 200,230 C 240,200 270,250 295,225" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-dasharray="6,4" opacity="0.7"/>
+  <polygon points="297,222 298,228 292,226" fill="#10B981"/>
+
+  <path d="M 230,120 C 190,140 180,180 160,205" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4,4" opacity="0.6"/>
+
+  <!-- Asset Badge Label -->
+  <rect x="175" y="325" width="150" height="28" rx="14" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1" />
+  <text x="250" y="343" font-family="'Noto Sans KR', sans-serif" font-size="11" font-weight="700" fill="#047857" text-anchor="middle">건물 에너지 가치 평가</text>
+</svg>

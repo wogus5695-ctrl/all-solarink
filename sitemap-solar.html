@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>솔라링크 동적 키워드 통합 허브</title>
+  <meta name="description" content="솔라링크의 전국 시/군/구 태양광 상담 키워드 관리용 허브 페이지입니다.">
+  <meta name="keywords" content="솔라링크 사이트맵, 태양광 키워드 허브">
+  <meta name="robots" content="index, follow">
+  <!-- Canonical link -->
+  <link rel="canonical" href="https://www.solarlink.co.kr/sitemap-solar">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="솔라링크 동적 키워드 통합 허브">
+  <meta property="og:description" content="솔라링크의 전국 시/군/구 태양광 상담 키워드 관리용 허브 페이지입니다.">
+  <meta property="og:image" content="https://www.solarlink.co.kr/assets/images/solarlink-og.png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="600">
+  <meta property="og:url" content="https://www.solarlink.co.kr/sitemap-solar">
+
+  <!-- Schema Structured Data -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "솔라링크",
+      "url": "https://www.solarlink.co.kr",
+      "description": "60평 이상 건물·지붕·부지 태양광 상담 연결 플랫폼"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "태양광 설치 가능성 상담 연결",
+      "provider": {
+        "@type": "Organization",
+        "name": "솔라링크"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "제주 제외 대한민국 전국"
+      },
+      "serviceType": "태양광 상담 연결"
+    }
+  ]
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+
+  <!-- Embedded style overrides specifically for sitemap dashboard view -->
+  <style>
+    /* Search & Stats styles */
+    .sitemap-dashboard {
+      background-color: var(--color-gray-50);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+    
+    .stats-widget {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    
+    .stat-card {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      padding: 15px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .stat-label {
+      font-size: 0.825rem;
+      color: var(--color-gray-500);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .stat-value {
+      font-family: var(--font-family-heading);
+      font-size: 1.5rem;
+      font-weight: 850;
+      color: var(--color-blue);
+    }
+    
+    .search-box {
+      position: relative;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 14px 20px;
+      border: 2px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      background-color: var(--color-white);
+      font-size: 0.95rem;
+      transition: all var(--transition-normal);
+    }
+    
+    .search-input:focus {
+      border-color: var(--color-blue);
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
+    }
+
+    /* Accordion styles */
+    .sitemap-accordion {
+      margin-bottom: 15px;
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: var(--color-white);
+      transition: all var(--transition-normal);
+    }
+    
+    .sitemap-accordion:hover {
+      border-color: var(--color-blue);
+    }
+    
+    .accordion-header {
+      width: 100%;
+      padding: 18px 24px;
+      background-color: var(--color-gray-50);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--color-navy);
+      transition: background-color var(--transition-fast);
+      border-bottom: 1px solid transparent;
+    }
+    
+    .accordion-header:hover {
+      background-color: var(--color-gray-100);
+    }
+    
+    .sitemap-accordion.active .accordion-header {
+      border-bottom-color: var(--color-gray-200);
+      background-color: var(--color-blue-light);
+    }
+    
+    .accordion-arrow {
+      width: 18px;
+      height: 18px;
+      transition: transform var(--transition-normal);
+      fill: var(--color-gray-500);
+    }
+    
+    .sitemap-accordion.active .accordion-arrow {
+      transform: rotate(180deg);
+      fill: var(--color-blue);
+    }
+    
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-slow) ease-out;
+      background-color: var(--color-white);
+    }
+    
+    .sitemap-accordion.active .accordion-body {
+      max-height: 2500px; /* High enough to fit lists */
+      overflow-y: auto;
+    }
+    
+    .accordion-content {
+      padding: 30px;
+    }
+    
+    .region-group {
+      margin-bottom: 30px;
+    }
+    
+    .region-group:last-child {
+      margin-bottom: 0;
+    }
+    
+    .region-group-title {
+      font-size: 0.95rem;
+      color: var(--color-gray-600);
+      font-weight: 700;
+      background-color: var(--color-gray-50);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 15px;
+      border: 1px solid var(--color-gray-200);
+    }
+
+    @media (max-width: 900px) {
+      .sitemap-dashboard {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+    }
+  </style>
+
+  <!-- JS Scripts -->
+  <script src="/js/regions.js" defer></script>
+  <script src="/js/keywordData.js" defer></script>
+  <script src="/js/siteConfig.js" defer></script>
+  <script src="/js/common.js" defer></script>
+</head>
+<body>
+  <!-- Naver Search Advisor Thumbnail (Visually Hidden) -->
+  <img src="/assets/images/solarlink-og.png" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;" alt="태양광 설치 솔루션">
+
+  <!-- 공통 Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="/" class="logo">
+        <span class="logo-icon"></span>
+        Solarink
+      </a>
+      <nav class="nav-menu">
+        <a href="/#section-target" class="nav-link">상담 조건</a>
+        <a href="/#section-benefits" class="nav-link">태양광 장점</a>
+        <a href="/#section-types" class="nav-link">상담 유형</a>
+        <a href="/#section-steps" class="nav-link">진행 절차</a>
+        <a href="/#section-faq" class="nav-link">FAQ</a>
+        <a href="/solar-guide" class="nav-link">설치 가이드</a>
+      </nav>
+      <div class="header-right">
+        <a href="tel:010-0000-0000" class="btn btn-outline btn-sm">전화문의</a>
+        <button class="hamburger" aria-label="메뉴 열기">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu (Sidebar) -->
+  <div class="drawer">
+    <div class="drawer-menu">
+      <a href="/#section-target" class="drawer-link">상담 조건</a>
+      <a href="/#section-benefits" class="drawer-link">태양광 장점</a>
+      <a href="/#section-types" class="drawer-link">상담 유형</a>
+      <a href="/#section-steps" class="drawer-link">진행 절차</a>
+      <a href="/#section-faq" class="drawer-link">FAQ</a>
+      <a href="/solar-guide" class="drawer-link">설치 가이드</a>
+      <a href="/sitemap-solar" class="drawer-link">동적 허브</a>
+    </div>
+    <div class="drawer-footer">
+      <a href="tel:010-0000-0000" class="btn btn-primary btn-sm" style="width: 100%;">
+        전화상담 연결
+      </a>
+    </div>
+  </div>
+  <div class="drawer-overlay"></div>
+
+  <!-- Main Container -->
+  <main class="container subpage-container">
+    <div class="subpage-header" style="border-bottom: none; margin-bottom: 20px;">
+      <h1>솔라링크 동적 키워드 통합 허브</h1>
+      <p style="margin-bottom: 15px;">전국 시/군/구 태양광 상담 키워드를 관리하는 통합 허브입니다.</p>
+    </div>
+
+    <!-- Admin dashboard: search box and stat metrics widgets -->
+    <div class="sitemap-dashboard">
+      <div class="search-box">
+        <input type="text" id="sitemap-search" class="search-input" placeholder="지역명 검색 (예: 화성, 강남구, 강원 고성)">
+      </div>
+      <div class="stats-widget">
+        <div class="stat-card">
+          <div class="stat-label">총 광역 수</div>
+          <div class="stat-value" id="stat-provinces">16</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">총 지역 수</div>
+          <div class="stat-value" id="stat-regions">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">총 키워드 수</div>
+          <div class="stat-value" id="stat-keywords">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapsible Province List Render Root -->
+    <div id="sitemap-accordion-root" style="margin-bottom: 80px;"></div>
+  </main>
+
+  <!-- 공통 Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-icon"></span>
+            Solarink
+          </div>
+          <p class="footer-info">
+            본 사이트는 태양광 설치를 검토 중인 건물 및 부지 소유주분들을 위해 맞춤형 시공업체를 매칭해 드리는 견적/상담 연결 플랫폼입니다.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-link-group">
+            <h4>바로가기</h4>
+            <ul>
+              <li><a href="/#section-target">상담 조건</a></li>
+              <li><a href="/#section-benefits">태양광 장점</a></li>
+              <li><a href="/#section-types">상담 유형</a></li>
+              <li><a href="/solar-guide">설치 가이드</a></li>
+            </ul>
+          </div>
+          <div class="footer-link-group">
+            <h4>고객 안내 및 문의</h4>
+            <ul>
+              <li>대표 번호: 010-0000-0000</li>
+              <li><a href="#" onclick="alert('광고 및 시공사 파트너 입점 제휴 문의는 support@solarlink.co.kr 로 메일을 보내주시기 바랍니다.'); return false;">광고/제휴 문의</a></li>
+              <li><a href="/privacy">개인정보처리방침</a></li>
+              <li><a href="/third-party-consent">개인정보 제3자 제공 안내</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <p>
+            <strong>필수 고지 사항</strong>
+            솔라링크는 태양광 직접 시공사 및 도급 관계 계약 주체가 아니라 상담을 무료로 연계하고 조율해 드리는 온라인 플랫폼 서비스입니다. 
+            실제 견적, 시공, 계약, 현장조사, 인허가 및 설치 조건은 연결된 전문업체와의 상담을 통해 결정됩니다.
+          </p>
+        </div>
+        <div class="footer-copyright">
+          &copy; 2026 Solarlink. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Nationwide dynamic sitemap link rendering, filter, and fold/unfold interaction logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const accordionRoot = document.getElementById('sitemap-accordion-root');
+      const statProvinces = document.getElementById('stat-provinces');
+      const statRegions = document.getElementById('stat-regions');
+      const statKeywords = document.getElementById('stat-keywords');
+      const searchInput = document.getElementById('sitemap-search');
+      
+      if (!accordionRoot || !window.SOLAR_REGIONS || !window.SOLAR_KEYWORDS) {
+        return;
+      }
+
+      // Ordered 16 provinces (Jeju strictly excluded)
+      const provinces = [
+        "서울", "경기", "인천", "충남", "충북", "경남", "경북", "부산", 
+        "대구", "울산", "전남", "전북", "광주", "강원", "대전", "세종"
+      ];
+      
+      let totalRegions = window.SOLAR_REGIONS.length;
+      let totalKeywords = 0;
+      
+      // Update Stat Widgets
+      statProvinces.textContent = provinces.length;
+      statRegions.textContent = totalRegions;
+
+      // 1. Programmatically build accordion modules
+      provinces.forEach(prov => {
+        const provRegions = window.SOLAR_REGIONS.filter(r => r.province === prov);
+        if (provRegions.length === 0) return;
+        
+        // Calculate keyword count in this province
+        let provKwCount = 0;
+        provRegions.forEach(r => {
+          provKwCount += window.SOLAR_KEYWORDS[r.keywordSet].length;
+        });
+        totalKeywords += provKwCount;
+
+        // Create Accordion Container
+        const accordion = document.createElement('div');
+        accordion.className = 'sitemap-accordion';
+        accordion.dataset.provinceName = prov;
+        
+        // Header
+        const header = document.createElement('button');
+        header.className = 'accordion-header';
+        header.innerHTML = `
+          <span>${prov} (${provRegions.length}개 지역)</span>
+          <svg class="accordion-arrow" width="14" height="14" viewBox="0 0 24 24">
+            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+          </svg>
+        `;
+        accordion.appendChild(header);
+        
+        // Body
+        const body = document.createElement('div');
+        body.className = 'accordion-body';
+        
+        const content = document.createElement('div');
+        content.className = 'accordion-content';
+        
+        // Populate region groups inside accordion content
+        provRegions.forEach(region => {
+          const regionGrp = document.createElement('div');
+          regionGrp.className = 'region-group';
+          regionGrp.dataset.regionSearch = region.regionName.toLowerCase();
+          
+          const groupTitle = document.createElement('div');
+          groupTitle.className = 'region-group-title';
+          groupTitle.textContent = `${prov} > ${region.regionName}`;
+          regionGrp.appendChild(groupTitle);
+          
+          const grid = document.createElement('div');
+          grid.className = 'sitemap-list';
+          
+          const kwSet = window.SOLAR_KEYWORDS[region.keywordSet];
+          kwSet.forEach(kw => {
+            const urlParam = `${region.urlRegion}-${kw.urlKeyword}`;
+            const displayText = `${region.regionName} ${kw.label}`;
+            
+            const linkItem = document.createElement('div');
+            linkItem.className = 'sitemap-item';
+            linkItem.innerHTML = `
+              <a href="/?k=${urlParam}">${displayText}</a>
+              <span>URL: /?k=${urlParam}</span>
+            `;
+            grid.appendChild(linkItem);
+          });
+          
+          regionGrp.appendChild(grid);
+          content.appendChild(regionGrp);
+        });
+        
+        body.appendChild(content);
+        accordion.appendChild(body);
+        
+        // Accordion Toggle click interaction
+        header.addEventListener('click', () => {
+          const isActive = accordion.classList.contains('active');
+          
+          // Toggle clicked accordion
+          if (isActive) {
+            accordion.classList.remove('active');
+            body.style.maxHeight = null;
+          } else {
+            accordion.classList.add('active');
+            body.style.maxHeight = body.scrollHeight + 'px';
+          }
+        });
+        
+        accordionRoot.appendChild(accordion);
+      });
+      
+      // Update Total Keywords Stat count
+      statKeywords.textContent = totalKeywords.toLocaleString();
+
+      // 2. Real-time Search Input filter logic
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.trim().toLowerCase();
+          
+          const accordions = document.querySelectorAll('.sitemap-accordion');
+          
+          accordions.forEach(accordion => {
+            const body = accordion.querySelector('.accordion-body');
+            const regionGroups = accordion.querySelectorAll('.region-group');
+            let hasVisibleGroup = false;
+            
+            regionGroups.forEach(grp => {
+              const regionName = grp.dataset.regionSearch;
+              const provinceName = accordion.dataset.provinceName.toLowerCase();
+              
+              // Match query with regionName or provinceName
+              if (regionName.includes(query) || provinceName.includes(query)) {
+                grp.style.display = 'block';
+                hasVisibleGroup = true;
+              } else {
+                grp.style.display = 'none';
+              }
+            });
+            
+            if (query === "") {
+              // Reset state: close all and show all groups
+              accordion.style.display = 'block';
+              regionGroups.forEach(g => g.style.display = 'block');
+              accordion.classList.remove('active');
+              body.style.maxHeight = null;
+            } else if (hasVisibleGroup) {
+              // Match found: show accordion, open it, and display matched subgroups
+              accordion.style.display = 'block';
+              accordion.classList.add('active');
+              body.style.maxHeight = body.scrollHeight + 'px';
+            } else {
+              // No match: hide accordion completely
+              accordion.style.display = 'none';
+              accordion.classList.remove('active');
+              body.style.maxHeight = null;
+            }
+          });
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

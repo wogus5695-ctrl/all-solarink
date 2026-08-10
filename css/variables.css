@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Outfit:wght@400;550;600;700;850&display=swap');
+
+:root {
+  /* Color Palette */
+  --color-navy-dark: #0A0F1D;
+  --color-navy: #0F172A;
+  --color-navy-light: #1E293B;
+  --color-navy-slate: #334155;
+  
+  --color-blue: #0284C7;
+  --color-blue-light: #F0F9FF;
+  --color-blue-bg: #F8FAFC;
+  
+  --color-green: #10B981;
+  --color-green-dark: #059669;
+  --color-green-light: #ECFDF5;
+  
+  --color-white: #FFFFFF;
+  --color-gray-50: #F8FAFC;
+  --color-gray-100: #F1F5F9;
+  --color-gray-200: #E2E8F0;
+  --color-gray-300: #CBD5E1;
+  --color-gray-500: #64748B;
+  --color-gray-600: #475569;
+  --color-gray-800: #1E293B;
+  --color-gray-900: #0F172A;
+
+  /* Typography */
+  --font-family-base: 'Noto Sans KR', sans-serif;
+  --font-family-heading: 'Outfit', 'Noto Sans KR', sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.04), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-inset: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Layout Constants */
+  --container-max-width: 1200px;
+  --header-height-pc: 72px;
+  --header-height-mo: 58px;
+  --z-index-header: 100;
+  --z-index-cta: 90;
+  --z-index-modal: 200;
+}

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>솔라링크 | 60평 이상 건물·지붕 태양광 상담 연결</title>
+  <meta name="description" content="공장, 창고, 축사, 건물 옥상 등 60평 이상 지붕·부지 보유 고객을 위한 태양광 설치 가능성 확인 및 전문업체 상담 연결 플랫폼입니다.">
+  <meta name="keywords" content="태양광, 공장태양광, 지붕태양광, 창고태양광, 축사태양광, 태양광상담, 솔라링크">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.solarlink.co.kr/">
+  <meta property="og:title" content="솔라링크 | 60평 이상 건물·지붕 태양광 상담 연결">
+  <meta property="og:description" content="공장, 창고, 축사, 건물 옥상 등 60평 이상 지붕·부지 보유 고객을 위한 태양광 설치 가능성 확인 및 전문업체 상담 연결 플랫폼입니다.">
+  <meta property="og:image" content="https://www.solarlink.co.kr/assets/images/solarlink-og.png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="600">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="솔라링크 | 60평 이상 건물·지붕 태양광 상담 연결">
+  <meta property="twitter:description" content="공장, 창고, 축사, 건물 옥상 등 60평 이상 지붕·부지 보유 고객을 위한 태양광 설치 가능성 확인 및 전문업체 상담 연결 플랫폼입니다.">
+  <meta property="twitter:image" content="https://www.solarlink.co.kr/assets/images/solarlink-og.png">
+
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- CSS Style sheets -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+
+  <!-- JS Database & resolver modules (defer loaded for correct order execution) -->
+  <script src="/js/regions.js" defer></script>
+  <script src="/js/keywordData.js" defer></script>
+  <script src="/js/siteConfig.js" defer></script>
+  <script src="/js/common.js" defer></script>
+  <script src="/js/main.js" defer></script>
+  <script src="/js/keywordResolver.js" defer></script>
+</head>
+<body>
+  <!-- Naver Search Advisor Thumbnail (Visually Hidden) -->
+  <img src="/assets/images/solarlink-og.png" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;" alt="태양광 설치 솔루션">
+
+  <!-- 01. 공통 Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="/" class="logo" id="header-logo">
+        <span class="logo-icon"></span>
+        Solarink
+      </a>
+      
+      <!-- PC Navigation Menu -->
+      <nav class="nav-menu">
+        <a href="#section-target" class="nav-link">상담 조건</a>
+        <a href="#section-benefits" class="nav-link">태양광 장점</a>
+        <a href="#section-types" class="nav-link">상담 유형</a>
+        <a href="#section-steps" class="nav-link">진행 절차</a>
+        <a href="#section-faq" class="nav-link">FAQ</a>
+        <a href="/solar-guide" class="nav-link">설치 가이드</a>
+      </nav>
+      
+      <div class="header-right">
+        <!-- Call Button (Always Visible) -->
+        <a href="#consult-form" class="btn btn-outline btn-sm" id="btn-call-header">
+          상담 신청
+        </a>
+        
+        <!-- Hamburger Menu Button for Mobile -->
+        <button class="hamburger" aria-label="메뉴 열기" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu (Sidebar) -->
+  <div class="drawer" id="mobile-drawer">
+    <div class="drawer-menu">
+      <a href="#section-target" class="drawer-link">상담 조건</a>
+      <a href="#section-benefits" class="drawer-link">태양광 장점</a>
+      <a href="#section-types" class="drawer-link">상담 유형</a>
+      <a href="#section-steps" class="drawer-link">진행 절차</a>
+      <a href="#section-faq" class="drawer-link">FAQ</a>
+      <a href="/solar-guide" class="drawer-link">설치 가이드</a>
+      <a href="/sitemap-solar" class="drawer-link">동적 허브</a>
+    </div>
+    <div class="drawer-footer">
+      <a href="#consult-form" class="btn btn-primary btn-sm" style="width: 100%;">
+        무료 상담 신청
+      </a>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="mobile-drawer-overlay"></div>
+
+  <!-- 404/NotFound 예외 처리 페이지 섹션 (기본값 숨김) -->
+  <section class="subpage-container hidden" id="section-not-found" style="text-align: center; padding-top: 120px; padding-bottom: 120px;">
+    <div class="container" style="max-width: 600px;">
+      <div style="font-size: 5rem; line-height: 1; font-weight: 850; color: var(--color-gray-300); margin-bottom: 20px;">404</div>
+      <h2 style="font-size: 1.75rem; color: var(--color-navy); margin-bottom: 15px;">요청하신 태양광 상담 페이지를 찾을 수 없습니다.</h2>
+      <p style="color: var(--color-gray-500); font-size: 1rem; margin-bottom: 35px;">입력하신 URL 경로가 잘못되었거나 존재하지 않는 상담 지역/키워드 매핑 정보입니다.</p>
+      <div style="display: flex; gap: 15px; justify-content: center;">
+        <a href="/" class="btn btn-outline">메인으로 이동</a>
+        <a href="#consult-form" class="btn btn-primary" onclick="const f = document.getElementById('consult-form'); if(f) f.classList.remove('hidden');">상담 신청하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. 메인 Hero 섹션 (k 파라미터 없을 시 표시) -->
+  <section class="hero" id="section-hero">
+    <!-- background image slider elements -->
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: url('/assets/images/media_1785915472691.jpg'); background-position: center bottom;"></div>
+      <div class="hero-slide" style="background-image: url('/assets/images/media_1785915472698.jpg'); background-position: center center;"></div>
+    </div>
+    <!-- double gradient overlay -->
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badges">
+          <span class="badge badge-navy">대형 지붕·부지 상담</span>
+          <span class="badge badge-blue">전문업체 상담 연결</span>
+          <span class="badge badge-green hide-mobile">설치 가능성 사전 확인</span>
+        </div>
+        <h1 id="main-hero-h1">
+          비어 있는 지붕과 부지,<br>
+          태양광 활용 가능성부터<br class="mo-only">
+          확인하세요.
+        </h1>
+        <p>
+          공장·창고·축사·상가·건물 옥상까지<br>
+          공간 조건에 맞는 태양광 전문업체 상담을<br class="mo-only">연결합니다.
+        </p>
+        <div class="hero-cta" style="margin-bottom: 20px;">
+          <a href="#consult-form" class="btn btn-accent" id="hero-btn-form">무료 상담 신청</a>
+        </div>
+        <div class="hero-helper-note" style="font-size: 0.85rem; color: var(--color-gray-300); font-weight: 500; margin-top: 15px;">
+          <span class="pc-only">※ 솔라링크는 직접 시공사가 아니며, 60평 이상 건물·지붕·부지 중심으로 상담을 연결합니다.</span>
+          <span class="mo-only">※ 60평 이상 건물·지붕·부지 중심 상담 연결 플랫폼입니다.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. 동적 Hero 섹션 (k 파라미터 유효 시 노출) -->
+  <section class="hero hidden" id="section-dynamic-hero">
+    <!-- background image slider elements -->
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: url('/assets/images/media_1785915472691.jpg'); background-position: center bottom;"></div>
+      <div class="hero-slide" style="background-image: url('/assets/images/media_1785915472698.jpg'); background-position: center center;"></div>
+    </div>
+    <!-- double gradient overlay -->
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badges">
+          <span class="badge badge-navy">대형 지붕·부지 상담</span>
+          <span class="badge badge-blue" id="dynamic-badge-region">지역 태양광 상담</span>
+          <span class="badge badge-green hide-mobile">설치 가능성 사전 확인</span>
+        </div>
+        <h1 id="dynamic-hero-h1">
+          {동적변환 키워드} 상담,<br>
+          비어 있는 지붕과 부지 활용 가능성부터 확인하세요.
+        </h1>
+        <p id="dynamic-hero-desc">
+          공장·창고·축사·상가·건물 옥상까지<br>
+          공간 조건에 맞는 태양광 전문업체 상담을<br class="mo-only">연결합니다.
+        </p>
+        <div class="hero-cta" style="margin-bottom: 20px;">
+          <a href="#consult-form" class="btn btn-accent" id="dynamic-hero-btn-form">무료 상담 신청</a>
+        </div>
+        <div class="hero-helper-note" style="font-size: 0.85rem; color: var(--color-gray-300); font-weight: 500; margin-top: 15px;">
+          <span class="pc-only">※ 솔라링크는 직접 시공사가 아니며, 60평 이상 건물·지붕·부지 중심으로 상담을 연결합니다.</span>
+          <span class="mo-only">※ 60평 이상 건물·지붕·부지 중심 상담 연결 플랫폼입니다.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. 비어 있는 지붕과 부지의 가능성 (후킹 브릿지 섹션) -->
+  <section class="section-target hook-section" id="section-target" style="background-image: url('/assets/images/media_1785983289738.png');">
+    <div class="hook-overlay"></div>
+    <div class="container hook-container">
+      <div class="hook-content">
+        <h2>비어 있는 지붕과 부지,<br class="mo-only"> 그냥 두기엔 아깝지 않으신가요?</h2>
+        
+        <!-- PC Description -->
+        <p class="hook-desc pc-only-block">
+          공장·창고·축사·상가처럼 넓은 지붕이나 유휴 부지가 있다면<br class="pc-only">
+          전기요금 절감, 지붕 임대, 발전사업 가능성을 조건에 따라 검토해볼 수 있습니다.
+        </p>
+        <!-- MO Description -->
+        <p class="hook-desc mo-only-block">
+          공장·창고·축사처럼 넓은 공간이라면<br class="mo-only">
+          태양광 활용 가능성을 검토해볼 수 있습니다.
+        </p>
+
+        <!-- PC Guide -->
+        <p class="hook-guide pc-only-block">
+          솔라링크는 공간 조건을 확인한 뒤,<br class="pc-only">
+          상담 가능한 태양광 전문업체 연결을 도와드립니다.
+        </p>
+        <!-- MO Guide -->
+        <p class="hook-guide mo-only-block">
+          공간 조건 확인 후<br class="mo-only">
+          전문업체 상담을 연결합니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 04. 공간 조건별 상담 안내 섹션 (메인 전용 2x2 그리드) -->
+  <section class="section-types section-padding" id="section-types">
+    <div class="container">
+      <!-- Mobile Intro Text Block (Only visible on Mobile) -->
+      <div class="space-mo-intro mo-only-block">
+        <span class="space-mo-label">공간별 상담 유형</span>
+        <h2>공간마다 가능한 방식은 다릅니다.</h2>
+        <p class="space-mo-desc">
+          공장·창고·축사·건물 옥상처럼 넓은 공간은<br>
+          조건에 따라 태양광 상담 방향이 달라질 수 있습니다.
+        </p>
+        <div class="space-mo-accent">
+          공간 조건 확인 후 전문업체 상담을 연결합니다.
+        </div>
+      </div>
+
+      <div class="space-grid">
+        <!-- Card 1: Text Card (Representing Section Header - Only visible on PC) -->
+        <div class="space-card text-card pc-only-flex">
+          <div class="text-card-content">
+            <h2>공간마다 가능한 방식은 다릅니다.</h2>
+            <p>공장·창고·축사·건물 옥상처럼 넓은 공간은<br class="pc-only">면적, 구조, 전기 사용량, 계통연계 조건에 따라<br class="pc-only">상담 방향이 달라질 수 있습니다.</p>
+            <div class="text-card-accent">
+              솔라링크는 공간 조건을 먼저 확인한 뒤<br class="pc-only">태양광 전문업체 상담 연결을 도와드립니다.
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 2: Factory Image Card -->
+        <div class="space-card image-card" style="background-image: url('/assets/images/media_1785995096947.jpg');">
+          <div class="image-card-overlay"></div>
+          <div class="image-card-content">
+            <h3>공장 지붕</h3>
+            <p>전기 사용량이 많은 제조시설의<br>태양광 활용 가능성 검토</p>
+          </div>
+        </div>
+        
+        <!-- Card 3: Warehouse Image Card -->
+        <div class="space-card image-card" style="background-image: url('/assets/images/media_1785995098603.jpg');">
+          <div class="image-card-overlay"></div>
+          <div class="image-card-content">
+            <h3>물류창고 지붕</h3>
+            <p>넓은 창고 지붕과 유휴 공간의<br>태양광 상담 가능성 확인</p>
+          </div>
+        </div>
+        
+        <!-- Card 4: Farm Image Card -->
+        <div class="space-card image-card" style="background-image: url('/assets/images/media_1785995100115.jpg');">
+          <div class="image-card-overlay"></div>
+          <div class="image-card-content">
+            <h3>축사·농업시설 지붕</h3>
+            <p>농업시설 지붕의 구조와<br>면적 조건을 기준으로 검토</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. 키워드 유형별 본문 설명 분기 섹션 (k 파라미터 유효 시 노출) -->
+  <section class="section-padding hidden" id="section-dynamic-desc" style="background-color: var(--color-gray-50); border-bottom: 1px solid var(--color-gray-200);">
+    <div class="container">
+      <div class="card" style="max-width: 900px; margin: 0 auto; padding: 40px; border-color: var(--color-blue); border-left: 5px solid var(--color-blue);">
+        <h3 id="dynamic-desc-title" style="font-size: 1.4rem; color: var(--color-navy); margin-bottom: 15px;">상담 신청 전 확인 사항</h3>
+        <p id="dynamic-desc-text" style="font-size: 1.05rem; color: var(--color-gray-700); line-height: 1.75; word-break: keep-all;"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. 예상 임대수익 후킹 섹션 (구 section-benefits / section-diagnostics) -->
+  <section class="section-revenue section-padding" id="section-benefits">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 30px;">
+        <span class="panel-badge" style="margin-bottom: 15px;">지붕 임대형 태양광</span>
+        
+        <!-- PC Title/Desc -->
+        <h2 class="pc-only-block">지붕 임대형 태양광,<br>예상 수익을 먼저 확인해보세요.</h2>
+        <p class="pc-only-block">공장·창고·축사처럼 넓은 지붕이 있다면 조건에 따라 지붕 임대형 태양광 상담을 검토할 수 있습니다.</p>
+        
+        <!-- MO Title/Desc -->
+        <h2 class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">예상 수익,<br>먼저 확인해보세요.</h2>
+        <p class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">넓은 지붕이 있다면<br>임대형 태양광 상담을 검토할 수 있습니다.</p>
+      </div>
+
+      <!-- Slot Machine Revenue Panel -->
+      <div class="revenue-number-panel">
+        <div class="revenue-number-wrapper" aria-label="예상 임대수익 47,500,000원">
+          <span class="number-label pc-only">예상 임대수익 기준 예시</span>
+          <span class="number-label mo-only">예상 임대수익 예시</span>
+          
+          <div class="slots-container">
+            <!-- Digit 4 -->
+            <span class="slot-digit" data-value="4">
+              <span class="slot-strip">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </span>
+            </span>
+            <!-- Digit 7 -->
+            <span class="slot-digit" data-value="7">
+              <span class="slot-strip">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </span>
+            </span>
+            <span class="slot-comma">,</span>
+            <!-- Digit 5 -->
+            <span class="slot-digit" data-value="5">
+              <span class="slot-strip">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </span>
+            </span>
+            <!-- Digit 0 -->
+            <span class="slot-digit" data-value="0">
+              <span class="slot-strip">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </span>
+            </span>
+            <!-- Digit 0 -->
+            <span class="slot-digit" data-value="0">
+              <span class="slot-strip">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </span>
+            </span>
+            <span class="slot-comma">,</span>
+            <!-- Digit 0 -->
+            <span class="slot-digit" data-value="0">
+              <span class="slot-strip">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </span>
+            </span>
+            <!-- Digit 0 -->
+            <span class="slot-digit" data-value="0">
+              <span class="slot-strip">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </span>
+            </span>
+            <!-- Digit 0 -->
+            <span class="slot-digit" data-value="0">
+              <span class="slot-strip">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </span>
+            </span>
+            <span class="slot-unit">원</span>
+          </div>
+          
+          <p class="revenue-basis pc-only-block">약 100평(330㎡) · 50kW 기준</p>
+          <p class="revenue-basis mo-only-block">100평 · 50kW 기준</p>
+        </div>
+      </div>
+
+      <!-- CTA and Disclaimer -->
+      <div class="revenue-footer">
+        <a href="#consult-form" class="btn btn-primary">내 지붕 수익 가능성 확인하기</a>
+        
+        <!-- PC Guide / Disclaimer -->
+        <p class="revenue-footer-guide pc-only-block">면적·주소·건물 유형을 남겨주시면 기본 조건 확인 후 상담 연결을 도와드립니다.</p>
+        <p class="revenue-disclaimer pc-only-block">
+          ※ 위 금액은 약 100평(330㎡), 50kW 기준 예시이며, 실제 수익·설치 가능 여부·계약 조건은 지붕 면적, 구조, 지역, 계통연계, 전문업체 상담 결과에 따라 달라질 수 있습니다.
+        </p>
+        
+        <!-- MO Guide / Disclaimer -->
+        <p class="revenue-footer-guide mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">
+          간단한 건물 정보만 남기면<br>기본 조건 확인 후 상담을 연결합니다.
+        </p>
+        <p class="revenue-disclaimer mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">
+          ※ 금액은 기준 예시이며, 실제 조건은 현장 및 상담 결과에 따라 달라질 수 있습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. 설치 전 확인 조건 섹션 (오각형 레이아웃) -->
+  <section class="section-precheck section-padding" id="section-precheck">
+    <div class="container">
+      
+      <!-- Mobile-only header (hidden on PC) -->
+      <div class="section-header mobile-header" style="max-width: 520px; margin: 0 auto 35px auto; text-align: center;">
+        <h2 style="word-break: keep-all; overflow-wrap: normal; line-height: 1.35; color: var(--color-navy);">내 건물, 태양광 상담 전<br class="mo-only">5가지 조건을 먼저 확인합니다.</h2>
+        <p style="word-break: keep-all; overflow-wrap: normal; line-height: 1.65; color: var(--color-gray-600); margin-top: 15px;">면적만 넓다고 모두 같은 방식으로 진행되지는 않습니다.<br class="mo-only">건물 조건과 사용 환경에 따라 상담 방향이 달라질 수 있습니다.</p>
+      </div>
+
+      <!-- Pentagon Layout Container -->
+      <div class="pentagon-container">
+        <!-- Pentagon Connecting Lines (SVG) -->
+        <svg class="pentagon-lines" viewBox="0 0 1180 750" preserveAspectRatio="none">
+          <polygon points="590,85 1027,285 860,610 320,610 153,285" class="pentagon-polygon" />
+        </svg>
+
+        <!-- Center Text block (PC only) -->
+        <div class="pentagon-center-text">
+          <h2 style="word-break: keep-all; overflow-wrap: normal; line-height: 1.35; color: var(--color-navy); margin-bottom: 20px;">내 건물, 태양광 상담 전<br>5가지 조건을 먼저 확인합니다.</h2>
+          <p style="word-break: keep-all; overflow-wrap: normal; line-height: 1.6; color: var(--color-gray-600);">면적만 넓다고 모두 같은 방식으로 진행되지는 않습니다.<br>건물 조건과 사용 환경에 따라 상담 방향이 달라질 수 있습니다.</p>
+        </div>
+
+        <!-- Card 1 -->
+        <div class="precheck-card pentagon-card-1">
+          <span class="card-num-badge">01</span>
+          <span class="precheck-check">✓</span>
+          <h3>면적</h3>
+          <p>60평 이상 건물·지붕·부지인지 먼저 확인합니다.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="precheck-card pentagon-card-2">
+          <span class="card-num-badge">02</span>
+          <span class="precheck-check">✓</span>
+          <h3>소유 여부</h3>
+          <p>건물주이거나 소유자 동의가 가능하면 상담 진행이 수월합니다.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="precheck-card pentagon-card-3">
+          <span class="card-num-badge">03</span>
+          <span class="precheck-check">✓</span>
+          <h3>지붕 구조</h3>
+          <p>방향, 그림자, 노후도, 하중 조건을 함께 확인합니다.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="precheck-card pentagon-card-4">
+          <span class="card-num-badge">04</span>
+          <span class="precheck-check">✓</span>
+          <h3>전기 사용량</h3>
+          <p>자가소비형 검토 시 월 전기 사용량 정보가 필요합니다.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="precheck-card pentagon-card-5">
+          <span class="card-num-badge">05</span>
+          <span class="precheck-check">✓</span>
+          <h3>계통연계</h3>
+          <p>발전사업형은 계통연계와 인허가 조건 검토가 필요합니다.</p>
+        </div>
+      </div>
+      
+      <!-- Footer Guide -->
+      <div class="precheck-footer">
+        <p class="precheck-footer-guide" style="word-break: keep-all; overflow-wrap: normal; line-height: 1.5;">기본 조건을 확인한 뒤, 건물 조건에 맞는 상담 방향을 안내해드립니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07. 진행 절차 섹션 (4단계 카드 프로세스) -->
+  <section class="section-steps section-padding" id="section-steps">
+    <div class="container">
+      <div class="section-header" style="max-width: 600px; margin: 0 auto 50px auto; text-align: center;">
+        
+        <!-- PC Title/Desc -->
+        <h2 class="pc-only-block">신청부터 상담 연결까지,<br>이렇게 진행됩니다.</h2>
+        <p class="pc-only-block">간단한 건물 정보를 남겨주시면 기본 조건 확인 후 상담 가능한 전문업체 연결을 도와드립니다.</p>
+        
+        <!-- MO Title/Desc -->
+        <h2 class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">신청부터 상담 연결까지,<br>이렇게 진행됩니다.</h2>
+        <p class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">간단한 건물 정보를 남겨주시면<br>기본 조건 확인 후 상담 가능한 전문업체 연결을 도와드립니다.</p>
+      </div>
+      
+      <div class="steps-container">
+        <!-- Thin Progress fill line (PC only) -->
+        <div class="steps-progress-line">
+          <div class="steps-progress-fill"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step-card step-card-1">
+          <span class="step-card-label">STEP 01</span>
+          <div class="step-card-node">01</div>
+          <h3>간단한 상담 신청</h3>
+          <p>전화 또는 신청폼으로 건물 정보를 남겨주세요.</p>
+          <span class="step-card-tags pc-only-block">전화문의 · 신청폼</span>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card step-card-2">
+          <span class="step-card-label">STEP 02</span>
+          <div class="step-card-node">02</div>
+          <h3>기본 조건 확인</h3>
+          <p>면적, 건물 유형, 소유 여부를 기준으로 검토합니다.</p>
+          <span class="step-card-tags pc-only-block">60평 이상 · 건물 조건</span>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card step-card-3">
+          <span class="step-card-label">STEP 03</span>
+          <div class="step-card-node">03</div>
+          <h3>전문업체 상담 연결</h3>
+          <p>조건에 맞는 경우 전문업체 상담으로 연결합니다.</p>
+          <span class="step-card-tags pc-only-block">조건별 연결</span>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card step-card-4">
+          <span class="step-card-label">STEP 04</span>
+          <div class="step-card-node">04</div>
+          <h3>현장 조건 상담</h3>
+          <p>설치 가능성, 임대 조건, 견적 상담이 이어집니다.</p>
+          <span class="step-card-tags pc-only-block">현장 확인 · 조건 상담</span>
+        </div>
+      </div>
+
+      <!-- Bottom Transparency Disclaimer -->
+      <div class="steps-bottom-text">
+        <!-- PC Footnote -->
+        <p class="pc-only-block">솔라링크는 직접 시공사가 아니라,<br>조건 확인 후 전문업체 상담을 연결하는 플랫폼입니다.</p>
+        
+        <!-- MO Footnote -->
+        <p class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">솔라링크는 직접 시공사가 아니라,<br>조건 확인 후 전문업체 상담을 연결하는 플랫폼입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08. 마지막 안심/확신 섹션 (풀 와이드 배경 히어로) -->
+  <section class="section-trust" id="section-trust">
+    <div class="container">
+      <div class="trust-hero-content">
+        <!-- Left Area: Heading, Paragraphs, CTA, Notices -->
+        <div class="trust-hero-left">
+          <span class="trust-hero-label">부담 없는 조건 확인</span>
+          
+          <!-- PC Left Text Area -->
+          <h2 class="pc-only-block">설치 결정 전,<br>내 건물 조건부터 확인해보세요.</h2>
+          <p class="trust-hero-main-text pc-only-block">솔라링크는 직접 시공사가 아닙니다. 건물 조건을 확인한 뒤 상담 가능한 태양광 전문업체 연결을 도와드립니다.</p>
+          <p class="trust-hero-sub-text pc-only-block">면적, 지붕 구조, 소유 여부, 전기 사용량, 계통연계 조건에 따라 상담 방향은 달라질 수 있습니다.</p>
+          
+          <!-- MO Left Text Area -->
+          <h2 class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">설치 결정 전,<br>조건 확인부터 시작하세요.</h2>
+          <p class="trust-hero-main-text mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">건물 조건을 먼저 확인한 뒤<br>상담 가능한 전문업체 연결을 도와드립니다.</p>
+          <p class="trust-hero-sub-text mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">면적·구조·소유 여부에 따라<br>상담 방향은 달라질 수 있습니다.</p>
+          
+          <div class="trust-hero-cta-wrapper">
+            <a href="#consult-form" class="trust-hero-btn">내 건물 상담 가능성 확인하기</a>
+          </div>
+          
+          <!-- PC / MO Notices -->
+          <p class="trust-hero-notice pc-only-block">실제 진행 여부는 현장 조건과 전문업체 상담 결과에 따라 결정됩니다.</p>
+          <p class="trust-hero-notice mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">진행 여부는 조건 확인 후 결정됩니다.</p>
+        </div>
+
+        <!-- Right Area: 3 Reassurance point cards (Glassmorphic) -->
+        <div class="trust-hero-right">
+          <div class="trust-hero-points">
+            <!-- Point 1 -->
+            <div class="trust-hero-point-card">
+              <span class="trust-hero-point-check">✓</span>
+              <div class="trust-hero-point-body">
+                <h3>상담 신청 ≠ 설치 계약</h3>
+                <p>신청만으로 설치가 확정되지 않습니다.</p>
+              </div>
+            </div>
+
+            <!-- Point 2 -->
+            <div class="trust-hero-point-card">
+              <span class="trust-hero-point-check">✓</span>
+              <div class="trust-hero-point-body">
+                <h3>넓은 공간 우선 검토</h3>
+                <p>공장·창고·축사·건물 옥상 중심으로 확인합니다.</p>
+              </div>
+            </div>
+
+            <!-- Point 3 -->
+            <div class="trust-hero-point-card">
+              <span class="trust-hero-point-check">✓</span>
+              <div class="trust-hero-point-body">
+                <h3>전문업체 상담 연결</h3>
+                <p>조건에 맞는 경우 전문업체 상담으로 연결합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09. FAQ 섹션 -->
+  <section class="section-faq section-padding" id="section-faq">
+    <div class="container">
+      <div class="section-header">
+        <h2>자주 묻는 질문</h2>
+        <p>상담 진행과 설치 조건에 관한 핵심 질문들을 모았습니다. 불필요한 반복 설명을 줄여 피로도를 최소화했습니다.</p>
+      </div>
+      
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-header" aria-expanded="false">
+            <span><span class="q-icon">Q</span>60평 미만 건물도 상담 가능한가요?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-answer">
+              솔라링크는 기본적으로 60평 이상 건물·지붕·부지 보유 고객을 대상으로 상담 연결을 진행합니다. 60평 미만 소형 설치는 연결이 어려울 수 있습니다.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-header" aria-expanded="false">
+            <span><span class="q-icon">Q</span>솔라링크가 직접 시공하나요?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-answer">
+              아닙니다. 솔라링크는 태양광 설치를 검토하는 고객의 상담 정보를 접수하고, 조건에 맞는 전문업체 상담을 연결하는 플랫폼입니다.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-header" aria-expanded="false">
+            <span><span class="q-icon">Q</span>지붕만 있으면 바로 설치 가능한가요?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-answer">
+              지붕 면적, 구조안전, 방향, 그림자, 소유 여부, 계통연계 가능성 등을 함께 확인해야 합니다.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-header" aria-expanded="false">
+            <span><span class="q-icon">Q</span>수익이나 전기요금 절감이 보장되나요?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-answer">
+              보장되지 않습니다. 설치 방식, 발전량, 계약 조건, 정책, 전력 사용량에 따라 달라지므로 전문업체 상담을 통해 확인해야 합니다.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-header" aria-expanded="false">
+            <span><span class="q-icon">Q</span>상담 신청 시 어떤 정보가 필요한가요?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-answer">
+              지역, 건물 유형, 대략적인 면적, 소유 여부, 월 전기요금, 설치 목적을 입력하면 더 정확한 상담 연결이 가능합니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. 상담 신청폼 섹션 -->
+  <section class="section-form section-padding" id="consult-form">
+    <div class="container">
+      <div class="form-wrapper">
+        <div class="form-wrapper-header">
+          <h2>60평 이상 건물·지붕 태양광 상담 신청</h2>
+          <p>아래 정보를 남겨주시면 기본 조건 확인 후 상담 가능한 전문업체 연결을 도와드립니다.</p>
+        </div>
+        
+        <form id="consult-form-element" action="#" method="POST">
+          <div class="form-row">
+            <!-- Name -->
+            <div class="form-group">
+              <label class="form-label" for="consult-name">이름 / 담당자명 <span style="color:#EF4444">*</span></label>
+              <input type="text" id="consult-name" class="form-control" placeholder="성함을 입력하세요" required>
+            </div>
+            <!-- Phone -->
+            <div class="form-group">
+              <label class="form-label" for="consult-phone">연락처 <span style="color:#EF4444">*</span></label>
+              <input type="tel" id="consult-phone" class="form-control" placeholder="연락 가능한 번호를 입력하세요" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <!-- Region -->
+            <div class="form-group">
+              <label class="form-label" for="consult-region">설치 희망 지역 <span style="color:#EF4444">*</span></label>
+              <input type="text" id="consult-region" class="form-control" placeholder="예: 경기도 평택시" required>
+            </div>
+            <!-- Building Type -->
+            <div class="form-group">
+              <label class="form-label" for="consult-type">건물/부지 유형 <span style="color:#EF4444">*</span></label>
+              <select id="consult-type" class="form-control" required>
+                <option value="" disabled selected>선택해 주세요</option>
+                <option value="factory">공장</option>
+                <option value="warehouse">창고</option>
+                <option value="barn">축사</option>
+                <option value="commercial">상가/근린생활시설</option>
+                <option value="rooftop">건물 옥상</option>
+                <option value="land">유휴 부지</option>
+                <option value="etc">기타</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <!-- Area size (Alert target) -->
+            <div class="form-group">
+              <label class="form-label" for="consult-area">대략적인 면적 <span style="color:#EF4444">*</span></label>
+              <select id="consult-area" class="form-control" required>
+                <option value="" disabled selected>선택해 주세요</option>
+                <option value="under-60">60평 미만</option>
+                <option value="60-100">60~100평</option>
+                <option value="100-300">100~300평</option>
+                <option value="300-up">300평 이상</option>
+                <option value="unknown">잘 모르겠음</option>
+              </select>
+              
+              <!-- 60평 미만 선택 시 출력되는 동적 warning 경고 UI -->
+              <div id="area-warning-alert" class="form-alert hidden">
+                <svg width="16" height="16" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"/></svg>
+                <span>60평 미만 소형 설치는 상담 연결이 어려울 수 있습니다.</span>
+              </div>
+            </div>
+            
+            <!-- Ownership -->
+            <div class="form-group">
+              <label class="form-label" for="consult-ownership">소유 여부 <span style="color:#EF4444">*</span></label>
+              <select id="consult-ownership" class="form-control" required>
+                <option value="" disabled selected>선택해 주세요</option>
+                <option value="owner">소유자</option>
+                <option value="family">가족 소유</option>
+                <option value="corporate">법인 소유 건물 담당자</option>
+                <option value="tenant">임차인</option>
+                <option value="manager">관리자</option>
+                <option value="unknown">잘 모르겠음</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <!-- Electric bill -->
+            <div class="form-group">
+              <label class="form-label" for="consult-electric">월 평균 전기요금 <span style="color:#EF4444">*</span></label>
+              <select id="consult-electric" class="form-control" required>
+                <option value="" disabled selected>선택해 주세요</option>
+                <option value="under-50">50만원 미만</option>
+                <option value="50-100">50~100만원</option>
+                <option value="100-300">100~300만원</option>
+                <option value="300-500">300~500만원</option>
+                <option value="500-up">500만원 이상</option>
+                <option value="unknown">잘 모르겠음</option>
+              </select>
+            </div>
+            <!-- Purpose -->
+            <div class="form-group">
+              <label class="form-label" for="consult-purpose">설치 목적</label>
+              <select id="consult-purpose" class="form-control">
+                <option value="" disabled selected>선택해 주세요</option>
+                <option value="savings">전기요금 절감</option>
+                <option value="lease">지붕 임대 수익 검토</option>
+                <option value="business">발전사업 검토</option>
+                <option value="possibility">설치 가능 여부 확인</option>
+                <option value="etc">기타</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Preffered consult time -->
+          <div class="form-group">
+            <label class="form-label" for="consult-time">상담 희망 시간</label>
+            <select id="consult-time" class="form-control">
+              <option value="" disabled selected>선택해 주세요</option>
+              <option value="morning">오전</option>
+              <option value="afternoon">오후</option>
+              <option value="evening">저녁</option>
+              <option value="anytime">언제든 가능</option>
+            </select>
+          </div>
+
+          <!-- Honeypot field for anti-spam (invisible to users) -->
+          <div style="display:none !important;">
+            <label for="consult-email">이메일 (스팸 방지용)</label>
+            <input type="text" id="consult-email" name="consult-email" autocomplete="off">
+          </div>
+
+          <!-- Agreements with summarized legal copy -->
+          <div class="privacy-agreement-box">
+            <div class="form-checkbox-group">
+              <label class="form-checkbox">
+                <input type="checkbox" id="agree-privacy" required>
+                <span>[필수] <a href="/privacy" target="_blank" style="text-decoration: underline; color: var(--color-blue); font-weight: 600;">개인정보 수집 및 이용 동의</a> (상담 접수 및 연결을 위해 개인정보를 수집·이용합니다.)</span>
+              </label>
+              <label class="form-checkbox">
+                <input type="checkbox" id="agree-thirdparty" required>
+                <span>[필수] <a href="/third-party-consent" target="_blank" style="text-decoration: underline; color: var(--color-blue); font-weight: 600;">개인정보 제3자 제공 동의</a> (상담 연결을 위해 정보가 파트너 시공사에 제공될 수 있습니다.)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-submit-container">
+            <button type="submit" class="btn btn-accent btn-lg" id="btn-submit-form">
+              무료 상담 신청하기
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-icon"></span>
+            Solarink
+          </div>
+          <p class="footer-info">
+            본 사이트는 태양광 설치를 검토 중인 건물 및 부지 소유주분들을 위해 맞춤형 시공업체를 매칭해 드리는 견적/상담 연결 플랫폼입니다.
+          </p>
+          <!-- Business details expandable panel -->
+          <div id="footer-business-info" class="footer-business-panel hidden" style="margin-top: 15px; font-size: 0.8rem; color: var(--color-gray-400); line-height: 1.6; border-left: 2px solid var(--color-gray-600); padding-left: 12px; transition: all 0.3s ease;">
+            <strong>올케어 서비스</strong> | 대표: 김재현<br>
+            사업자등록번호: 405-15-02677
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-link-group">
+            <h4>바로가기</h4>
+            <ul>
+              <li><a href="#section-target">상담 조건</a></li>
+              <li><a href="#section-benefits">태양광 장점</a></li>
+              <li><a href="#section-types">상담 유형</a></li>
+              <li><a href="/solar-guide">설치 가이드</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-link-group">
+            <h4>고객 안내 및 문의</h4>
+            <ul>
+              <li><a href="#" onclick="event.preventDefault(); const p = document.getElementById('footer-business-info'); if(p) p.classList.toggle('hidden');" style="font-weight: 600; color: var(--color-blue);">사업자 정보 확인</a></li>
+              <li><a href="#" onclick="alert('광고 및 시공사 파트너 입점 제휴 문의는 kkkjjh5695@naver.com 로 메일을 보내주시기 바랍니다.'); return false;">광고/제휴 문의</a></li>
+              <li><a href="/privacy">개인정보처리방침</a></li>
+              <li><a href="/third-party-consent">개인정보 제3자 제공 안내</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-divider"></div>
+      
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <p>
+            <strong>필수 고지 사항</strong>
+            솔라링크는 태양광 직접 시공사 및 도급 관계 계약 주체가 아니라 상담을 무료로 연계하고 조율해 드리는 온라인 플랫폼 서비스입니다. 
+            실제 견적, 시공, 계약, 현장조사, 인허가 및 설치 조건은 연결된 전문업체와의 상담을 통해 결정됩니다.
+          </p>
+        </div>
+        <div class="footer-copyright">
+          &copy; 2026 Solarlink. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 하단 고정 CTA -->
+  <div class="fixed-cta" id="bottom-fixed-cta">
+    <div class="container fixed-cta-container">
+      <div class="fixed-cta-text">
+        <div class="fixed-cta-title">60평 이상 건물·지붕 태양광 상담</div>
+        <div class="fixed-cta-desc">조건 검토 후 검증된 시공사 매칭 지원</div>
+      </div>
+      <div class="fixed-cta-buttons">
+        <a href="#consult-form" class="btn btn-accent" id="cta-btn-form">무료 상담 신청</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal Overlay -->
+  <div id="lead-success-modal" class="modal-overlay hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 20px; backdrop-filter: blur(4px);">
+    <div class="card" style="max-width: 500px; width: 100%; padding: 40px; text-align: center; border-top: 5px solid var(--color-green); box-shadow: var(--shadow-lg);">
+      <div style="font-size: 3rem; color: var(--color-green); margin-bottom: 20px;">✓</div>
+      <h3 style="font-size: 1.5rem; color: var(--color-navy); margin-bottom: 15px;">상담 신청이 접수되었습니다.</h3>
+      <p style="color: var(--color-gray-600); font-size: 0.975rem; line-height: 1.6; margin-bottom: 15px; word-break: keep-all;">
+        입력해주신 정보를 바탕으로 기본 조건 확인 후 상담 가능한 전문업체 연결을 도와드리겠습니다.
+      </p>
+      <p style="color: var(--color-gray-400); font-size: 0.825rem; line-height: 1.5; margin-bottom: 30px; word-break: keep-all;">
+        ※ 실제 설치 가능 여부, 견적, 계약 조건은 연결된 전문업체와의 개별 상담을 통해 결정됩니다.
+      </p>
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <button class="btn btn-primary" style="padding: 12px 30px;" onclick="closeLeadModal('success')">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Failure Modal Overlay -->
+  <div id="lead-failure-modal" class="modal-overlay hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 20px; backdrop-filter: blur(4px);">
+    <div class="card" style="max-width: 500px; width: 100%; padding: 40px; text-align: center; border-top: 5px solid #EF4444; box-shadow: var(--shadow-lg);">
+      <div style="font-size: 3rem; color: #EF4444; margin-bottom: 20px;">✕</div>
+      <h3 style="font-size: 1.5rem; color: var(--color-navy); margin-bottom: 15px;">상담 신청 접수에 실패했습니다.</h3>
+      <p style="color: var(--color-gray-600); font-size: 0.975rem; line-height: 1.6; margin-bottom: 30px; word-break: keep-all;">
+        일시적인 네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.
+      </p>
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <button class="btn btn-primary" style="padding: 12px 30px;" onclick="closeLeadModal('failure')">다시 시도하기</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
