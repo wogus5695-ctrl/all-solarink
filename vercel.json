@@ -16,6 +16,7 @@
     { "src": "api/solar-lead.js", "use": "@vercel/node" }
   ],
   "rewrites": [
+    { "source": "/api/solar-lead", "destination": "/api/solar-lead.js" },
     { "source": "/solar-guide", "destination": "/solar-guide.html" },
     { "source": "/sitemap-solar", "destination": "/sitemap-solar.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
