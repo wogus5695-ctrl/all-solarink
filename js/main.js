@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isSubmitting) return;
 
       // Anti-spam 2: Honeypot field validation
-      const honeypotVal = document.getElementById('consult-email').value;
+      const honeypotVal = document.getElementById('consult-website').value;
       if (honeypotVal && honeypotVal.trim() !== '') {
         console.warn('[보안 경고] 스팸 필터 감지됨.');
         return;
@@ -136,75 +136,44 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Gather UTM and Referrer campaign metrics
+      // Gather UTM and campaign metrics
       const urlParams = new URLSearchParams(window.location.search);
-      const kParam = urlParams.get('k') || '';
+      const keywordParam = urlParams.get('k') || '';
       
-      let pageType = 'main';
-      if (window.location.pathname === '/solar-guide' || window.location.pathname.includes('solar-guide.html')) {
-        pageType = 'guide';
-      } else if (kParam !== '') {
-        pageType = 'dynamic';
-      }
-
-      // Safe parse resolved elements if we are in dynamic landing view
-      let regionName = '';
-      let keywordLabel = '';
       let displayKeyword = '';
-
-      if (pageType === 'dynamic' && window.SOLAR_REGIONS && window.SOLAR_KEYWORDS) {
-        const parts = kParam.split('-');
-        if (parts.length === 2) {
-          const urlRegion = decodeURIComponent(parts[0]);
-          const urlKeyword = decodeURIComponent(parts[1]);
-          const matchedRegion = window.SOLAR_REGIONS.find(r => r.urlRegion === urlRegion);
-          if (matchedRegion) {
-            regionName = matchedRegion.regionName;
-            const kwSet = window.SOLAR_KEYWORDS[matchedRegion.keywordSet];
-            const matchedKw = kwSet.find(kw => kw.urlKeyword === urlKeyword);
-            if (matchedKw) {
-              keywordLabel = matchedKw.label;
-              displayKeyword = regionName + " " + keywordLabel;
-            }
-          }
-        }
+      if (keywordParam) {
+        displayKeyword = decodeURIComponent(keywordParam).replace(/-/g, ' ');
       }
 
       const leadPayload = {
         name,
         phone,
         region,
-        propertyType,
-        areaRange,
+        buildingType: propertyType,
+        area: areaRange,
         ownership,
         monthlyElectricBill,
-        purpose,
+        installPurpose: purpose,
         preferredTime,
         privacyConsent,
         thirdPartyConsent,
-        honeypot: '',
-        source: {
-          pageType,
-          currentUrl: window.location.href,
-          kParam,
-          regionName,
-          keywordLabel,
-          displayKeyword,
-          referrer: document.referrer || '',
-          utm_source: urlParams.get('utm_source') || '',
-          utm_medium: urlParams.get('utm_medium') || '',
-          utm_campaign: urlParams.get('utm_campaign') || ''
-        }
+        pageUrl: window.location.href,
+        displayKeyword,
+        keywordParam,
+        sourceDomain: window.location.hostname,
+        referrer: document.referrer || '',
+        userAgent: navigator.userAgent,
+        website: honeypotVal
       };
 
       // Set Submitting State (Disable submit button)
       isSubmitting = true;
       submitButton.disabled = true;
-      submitButton.textContent = '제출 중...';
+      submitButton.textContent = '접수 중입니다...';
       lastSubmitTime = now;
 
       // Submit leads via AJAX POST Fetch
-      fetch('/api/leads', {
+      fetch('/api/solar-lead', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -222,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitButton.disabled = false;
         submitButton.textContent = '무료 상담 신청하기';
         
-        if (resData.success) {
+        if (resData.ok) {
           // Trigger Success feedback modal
           const successModal = document.getElementById('lead-success-modal');
           if (successModal) {
