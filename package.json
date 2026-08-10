@@ -1,0 +1,10 @@
+{
+  "name": "all-solarink",
+  "version": "1.0.0",
+  "description": "Solarink Landing Page",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {}
+}
