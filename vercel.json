@@ -1,5 +1,19 @@
 {
+  "version": 2,
   "cleanUrls": true,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "privacy.html", "use": "@vercel/static" },
+    { "src": "third-party-consent.html", "use": "@vercel/static" },
+    { "src": "solar-guide.html", "use": "@vercel/static" },
+    { "src": "sitemap-solar.html", "use": "@vercel/static" },
+    { "src": "css/**/*", "use": "@vercel/static" },
+    { "src": "js/**/*", "use": "@vercel/static" },
+    { "src": "assets/**/*", "use": "@vercel/static" },
+    { "src": "favicon.ico", "use": "@vercel/static" },
+    { "src": "robots.txt", "use": "@vercel/static" },
+    { "src": "sitemap.xml", "use": "@vercel/static" }
+  ],
   "rewrites": [
     { "source": "/solar-guide", "destination": "/solar-guide.html" },
     { "source": "/sitemap-solar", "destination": "/sitemap-solar.html" },
