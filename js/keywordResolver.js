@@ -435,22 +435,33 @@ document.addEventListener('DOMContentLoaded', () => {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "솔라링크",
-        "url": "https://www.allhasugu.co.kr",
-        "description": "60평 이상 건물·지붕·부지 태양광 상담 연결 플랫폼"
+        "url": "https://www.allhasugu.co.kr/",
+        "description": "태양광 상담 연결 플랫폼"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "솔라링크",
+        "alternateName": "Solarink",
+        "url": "https://www.allhasugu.co.kr/",
+        "logo": "https://www.allhasugu.co.kr/assets/images/solarlink-og.png",
+        "description": "건물·지붕·부지 조건 확인 후 태양광 전문업체 상담 연결을 돕는 플랫폼"
       },
       {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "태양광 설치 가능성 상담 연결",
+        "serviceType": "태양광 상담 연결",
         "provider": {
           "@type": "Organization",
-          "name": "솔라링크"
+          "name": "솔라링크",
+          "url": "https://www.allhasugu.co.kr/"
         },
         "areaServed": {
           "@type": "AdministrativeArea",
           "name": "제주 제외 대한민국 전국"
         },
-        "serviceType": "태양광 상담 연결"
+        "description": "공장·창고·축사·건물 옥상 등 넓은 공간의 태양광 활용 가능성을 확인하고 전문업체 상담 연결을 돕는 서비스"
       }
     ];
 
