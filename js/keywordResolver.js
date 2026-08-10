@@ -24,6 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mainTypes) mainTypes.classList.remove('hidden');
     if (mainTrust) mainTrust.classList.remove('hidden');
 
+    // Update SEO Head elements for standard main page
+    document.title = '솔라링크 | 비어 있는 지붕·부지 태양광 상담 연결';
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', '공장·창고·축사·건물 옥상 등 넓은 공간의 태양광 활용 가능성을 확인해보세요. 솔라링크는 조건 확인 후 전문업체 상담 연결을 돕습니다.');
+    }
+
     // Canonical link setup for Main page
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {
@@ -44,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // OG Meta tags for Main page
     updateOGMeta(
-      '솔라링크 | 60평 이상 건물·지붕 태양광 상담 연결',
-      '공장, 창고, 축사, 건물 옥상 등 60평 이상 지붕·부지 보유 고객을 위한 태양광 설치 가능성 확인 및 전문업체 상담 연결 플랫폼입니다.',
+      '솔라링크 | 비어 있는 지붕·부지 태양광 상담 연결',
+      '공장·창고·축사·건물 옥상 등 넓은 공간의 태양광 활용 가능성을 확인해보세요. 솔라링크는 조건 확인 후 전문업체 상담 연결을 돕습니다.',
       'https://www.solarlink.co.kr/'
     );
 
@@ -212,10 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 8. Update SEO Head elements for valid dynamic landing page
-  document.title = `${displayKeyword} 상담 | 60평 이상 태양광 가능성 확인 - 솔라링크`;
+  document.title = `${displayKeyword} 상담 | 비어 있는 공간을 가치 있게 - 솔라링크`;
   
   const metaDesc = document.querySelector('meta[name="description"]');
-  const descString = `${regionName}에서 60평 이상 건물·지붕·부지를 보유하고 있다면 ${keywordLabel} 상담 가능성을 확인해보세요. 솔라링크는 조건에 맞는 태양광 전문업체 상담을 연결합니다.`;
+  const descString = `${regionName}에서 공장·창고·축사·건물 옥상 등 넓은 지붕·부지를 보유하고 있다면 ${keywordLabel} 상담 가능성을 확인해보세요. 솔라링크가 조건 확인 후 전문업체 상담 연결을 돕습니다.`;
   if (metaDesc) {
     metaDesc.setAttribute('content', descString);
   }
@@ -241,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // OG Meta setup
   updateOGMeta(
-    `${displayKeyword} 상담 | 60평 이상 태양광 가능성 확인 - 솔라링크`,
+    `${displayKeyword} 상담 | 비어 있는 공간을 가치 있게 - 솔라링크`,
     descString,
     pageCanonicalUrl
   );
