@@ -56,6 +56,42 @@ document.addEventListener('DOMContentLoaded', () => {
       'https://www.allhasugu.co.kr/'
     );
 
+    // Restore standard texts for main page
+    const typesDescPc = document.getElementById('types-intro-desc-pc');
+    const typesDescMo = document.getElementById('types-intro-desc-mo');
+    if (typesDescPc) {
+      typesDescPc.innerHTML = '공장·창고·축사·건물 옥상처럼 넓은 공간은<br class="pc-only">면적, 구조, 전기 사용량, 계통연계 조건에 따라<br class="pc-only">상담 방향이 달라질 수 있습니다.';
+    }
+    if (typesDescMo) {
+      typesDescMo.innerHTML = '공장·창고·축사·건물 옥상처럼 넓은 공간은<br>조건에 따라 태양광 상담 방향이 달라질 수 있습니다.';
+    }
+
+    const benefitsDescPc = document.getElementById('benefits-desc-pc');
+    const benefitsDescMo = document.getElementById('benefits-desc-mo');
+    if (benefitsDescPc) {
+      benefitsDescPc.textContent = '공장·창고·축사처럼 넓은 지붕이 있다면 조건에 따라 지붕 임대형 태양광 상담을 검토할 수 있습니다.';
+    }
+    if (benefitsDescMo) {
+      benefitsDescMo.innerHTML = '넓은 지붕이 있다면<br>임대형 태양광 상담을 검토할 수 있습니다.';
+    }
+
+    const consultFormTitle = document.getElementById('consult-form-title');
+    if (consultFormTitle) {
+      consultFormTitle.textContent = '60평 이상 건물·지붕 태양광 상담 신청';
+    }
+
+    const faqItem1 = document.querySelector('.faq-item:first-child');
+    if (faqItem1) {
+      const qButton = faqItem1.querySelector('.faq-header');
+      const aContent = faqItem1.querySelector('.faq-answer');
+      if (qButton) {
+        qButton.innerHTML = `<span><span class="q-icon">Q</span>60평 미만 건물도 상담 가능한가요?</span><span class="faq-arrow"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>`;
+      }
+      if (aContent) {
+        aContent.textContent = '솔라링크는 기본적으로 60평 이상 건물·지붕·부지 보유 고객을 대상으로 상담 연결을 진행합니다. 60평 미만 소형 설치는 연결이 어려울 수 있습니다.';
+      }
+    }
+
     // Schema injection for Main page
     injectSchema('main');
     ensureTag('main-hero-h1', 'h1');
@@ -97,7 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Valid dynamic landing page resolved!
-  let displayKeyword = region.regionName + " " + keyword.label;
+  const displayRegion = urlRegion.replace(/-/g, ' ');
+  const displayKeywordPart = urlKeyword.replace(/-/g, ' ');
+  let displayKeyword = displayRegion + " " + displayKeywordPart;
   const regionName = region.regionName;
   const keywordLabel = keyword.label;
   const keywordType = keyword.type;
@@ -132,10 +170,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const badgeRegion = document.getElementById('dynamic-badge-region');
   
   if (heroH1) {
-    heroH1.innerHTML = `${displayKeyword} 상담,<br>비어 있는 지붕과 부지<br class="mo-only"> 활용 가능성부터 확인하세요.`;
+    heroH1.innerHTML = `${displayKeyword} 상담,<br>비어 있는 지붕과 부지 활용 가능성부터 확인하세요.`;
   }
   if (heroDesc) {
-    heroDesc.innerHTML = `공장·창고·축사·상가·건물 옥상까지<br>공간 조건에 맞는 태양광 전문업체 상담을<br class="mo-only">연결합니다.`;
+    heroDesc.innerHTML = `${displayRegion}에서 공장·창고·축사·상가·건물 옥상까지<br>공간 조건에 맞는 ${displayKeywordPart} 상담을 연결합니다.`;
   }
   if (badgeRegion) {
     badgeRegion.textContent = `${regionName} 태양광 상담`;
@@ -180,6 +218,26 @@ document.addEventListener('DOMContentLoaded', () => {
     descText.textContent = branchText;
   }
 
+  // 공간별 상담 유형 섹션 첫 번째 카드 본문 동적화 (PC/MO)
+  const typesDescPc = document.getElementById('types-intro-desc-pc');
+  const typesDescMo = document.getElementById('types-intro-desc-mo');
+  if (typesDescPc) {
+    typesDescPc.innerHTML = `${displayRegion}의 공장·창고·축사·건물 옥상처럼 넓은 공간은<br class="pc-only">면적, 구조, 전기 사용량, 계통연계 조건에 따라<br class="pc-only">${displayKeywordPart} 상담 방향이 달라질 수 있습니다.`;
+  }
+  if (typesDescMo) {
+    typesDescMo.innerHTML = `${displayRegion}의 공장·창고·축사·건물 옥상처럼 넓은 공간은<br>면적, 구조, 전기 사용량, 계통연계 조건에 따라<br>${displayKeywordPart} 상담 방향이 달라질 수 있습니다.`;
+  }
+
+  // 수익 후킹 섹션 보조문구 동적화 (PC/MO)
+  const benefitsDescPc = document.getElementById('benefits-desc-pc');
+  const benefitsDescMo = document.getElementById('benefits-desc-mo');
+  if (benefitsDescPc) {
+    benefitsDescPc.textContent = `${displayRegion}에서 넓은 지붕을 보유하고 있다면 조건에 따라 지붕 임대형 태양광 상담을 검토할 수 있습니다.`;
+  }
+  if (benefitsDescMo) {
+    benefitsDescMo.innerHTML = `${displayRegion}에서 넓은 지붕을 보유하고 있다면<br>조건에 따라 지붕 임대형 태양광 상담을 검토할 수 있습니다.`;
+  }
+
   // 6. Update FAQ Q1/A1 dynamically
   const faqItem1 = document.querySelector('.faq-item:first-child');
   if (faqItem1) {
@@ -187,11 +245,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const aContent = faqItem1.querySelector('.faq-answer');
     
     if (qButton) {
-      qButton.innerHTML = `<span><span class="q-icon">Q</span>${displayKeyword} 상담은 60평 이상만 가능한가요?</span><span class="faq-arrow"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>`;
+      qButton.innerHTML = `<span><span class="q-icon">Q</span>${displayRegion}에서도 ${displayKeywordPart} 상담 연결이 가능한가요?</span><span class="faq-arrow"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>`;
     }
     if (aContent) {
-      aContent.textContent = `솔라링크는 기본적으로 60평 이상 건물·지붕·부지 보유 고객을 대상으로 ${displayKeyword} 상담 연결을 진행합니다. 60평 미만 소형 설치는 연결이 어려울 수 있습니다.`;
+      aContent.textContent = `가능합니다. 다만 실제 상담 가능 여부는 건물 면적, 지붕 구조, 소유 여부, 전기 사용량, 계통연계 조건에 따라 달라질 수 있습니다. 조건 확인 후 상담 가능한 전문업체 연결을 도와드립니다.`;
     }
+  }
+
+  // 상담 신청폼 제목 동적화
+  const consultFormTitle = document.getElementById('consult-form-title');
+  if (consultFormTitle) {
+    consultFormTitle.textContent = `${displayKeyword} 상담 신청`;
   }
 
   // 7. Prefill Consulting Form values for high-fidelity UX
@@ -226,9 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 8. Update SEO Head elements for valid dynamic landing page with custom mappings
-  const displayRegion = urlRegion.replace(/-/g, ' ');
-  const displayKeywordPart = urlKeyword.replace(/-/g, ' ');
-  displayKeyword = displayRegion + " " + displayKeywordPart;
+
 
   let pageTitle = '';
   switch (urlKeyword) {
@@ -320,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   // Schema structured data injection
-  injectSchema('dynamic', { displayKeyword });
+  injectSchema('dynamic', { displayKeyword, displayRegion, displayKeywordPart });
 
   // ==========================================
   // Helper Functions (Scoped inside listener)
@@ -358,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ogImage.setAttribute('property', 'og:image');
       document.head.appendChild(ogImage);
     }
-    ogImage.setAttribute('content', 'https://www.solarlink.co.kr/assets/images/solarlink-og.png');
+    ogImage.setAttribute('content', 'https://www.allhasugu.co.kr/assets/images/solarlink-og.png');
   }
 
   // Inject WebSite, Service and FAQPage Schema structured data
@@ -373,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "솔라링크",
-        "url": "https://www.solarlink.co.kr",
+        "url": "https://www.allhasugu.co.kr",
         "description": "60평 이상 건물·지붕·부지 태양광 상담 연결 플랫폼"
       },
       {
@@ -394,11 +456,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Build FAQ Q1 dynamically
     const faqQ1 = (type === 'dynamic') 
-      ? `${data.displayKeyword} 상담은 60평 이상만 가능한가요?`
+      ? `${data.displayRegion}에서도 ${data.displayKeywordPart} 상담 연결이 가능한가요?`
       : '60평 미만 건물도 상담 가능한가요?';
       
     const faqA1 = (type === 'dynamic')
-      ? `솔라링크는 기본적으로 60평 이상 건물·지붕·부지 보유 고객을 대상으로 ${data.displayKeyword} 상담 연결을 진행합니다. 60평 미만 소형 설치는 연결이 어려울 수 있습니다.`
+      ? '가능합니다. 다만 실제 상담 가능 여부는 건물 면적, 지붕 구조, 소유 여부, 전기 사용량, 계통연계 조건에 따라 달라질 수 있습니다. 조건 확인 후 상담 가능한 전문업체 연결을 도와드립니다.'
       : '솔라링크는 기본적으로 60평 이상 건물·지붕·부지 보유 고객을 대상으로 상담 연결을 진행합니다. 60평 미만 소형 설치는 연결이 어려울 수 있습니다.';
 
     const faqSchema = {
