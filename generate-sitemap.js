@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://www.solarlink.co.kr';
+const SITE_URL = 'https://www.allhasugu.co.kr';
 
 // Helper to load client-side global JS databases
 const loadDatabase = (fileName) => {
@@ -31,10 +31,10 @@ try {
   // 1. Static Pages
   // Main Root
   xmlContent += `  <url>\n    <loc>${SITE_URL}/</loc>\n    <priority>1.0</priority>\n  </url>\n`;
-  // solar-guide Page
-  xmlContent += `  <url>\n    <loc>${SITE_URL}/solar-guide</loc>\n    <priority>0.8</priority>\n  </url>\n`;
   // sitemap-solar Page
   xmlContent += `  <url>\n    <loc>${SITE_URL}/sitemap-solar</loc>\n    <priority>0.8</priority>\n  </url>\n`;
+  // solar-guide Page
+  xmlContent += `  <url>\n    <loc>${SITE_URL}/solar-guide</loc>\n    <priority>0.8</priority>\n  </url>\n`;
 
   let dynamicUrlCount = 0;
 
