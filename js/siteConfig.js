@@ -2,8 +2,6 @@
 const SOLAR_CONFIG = {
   BRAND_NAME: "솔라링크",
   SITE_POSITION: "60평 이상 건물·지붕·부지 태양광 상담 연결 플랫폼",
-  PHONE_DISPLAY: "010-0000-0000",
-  PHONE_TEL: "tel:01000000000",
   SITE_URL: "https://www.solarlink.co.kr",
   
   // 사업자 정보

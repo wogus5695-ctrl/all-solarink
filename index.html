@@ -102,18 +102,7 @@
   </div>
   <div class="drawer-overlay" id="mobile-drawer-overlay"></div>
 
-  <!-- 404/NotFound 예외 처리 페이지 섹션 (기본값 숨김) -->
-  <section class="subpage-container hidden" id="section-not-found" style="text-align: center; padding-top: 120px; padding-bottom: 120px;">
-    <div class="container" style="max-width: 600px;">
-      <div style="font-size: 5rem; line-height: 1; font-weight: 850; color: var(--color-gray-300); margin-bottom: 20px;">404</div>
-      <h2 style="font-size: 1.75rem; color: var(--color-navy); margin-bottom: 15px;">요청하신 태양광 상담 페이지를 찾을 수 없습니다.</h2>
-      <p style="color: var(--color-gray-500); font-size: 1rem; margin-bottom: 35px;">입력하신 URL 경로가 잘못되었거나 존재하지 않는 상담 지역/키워드 매핑 정보입니다.</p>
-      <div style="display: flex; gap: 15px; justify-content: center;">
-        <a href="/" class="btn btn-outline">메인으로 이동</a>
-        <a href="#consult-form" class="btn btn-primary" onclick="const f = document.getElementById('consult-form'); if(f) f.classList.remove('hidden');">상담 신청하기</a>
-      </div>
-    </div>
-  </section>
+  <!-- 404/NotFound view is loaded dynamically from resolver script -->
 
   <!-- 02. 메인 Hero 섹션 (k 파라미터 없을 시 표시) -->
   <section class="hero" id="section-hero">
@@ -169,10 +158,10 @@
           <span class="badge badge-blue" id="dynamic-badge-region">지역 태양광 상담</span>
           <span class="badge badge-green hide-mobile">설치 가능성 사전 확인</span>
         </div>
-        <h1 id="dynamic-hero-h1">
-          {동적변환 키워드} 상담,<br>
+        <div id="dynamic-hero-h1" class="hero-h1-div">
+          태양광 상담,<br>
           비어 있는 지붕과 부지 활용 가능성부터 확인하세요.
-        </h1>
+        </div>
         <p id="dynamic-hero-desc">
           공장·창고·축사·상가·건물 옥상까지<br>
           공간 조건에 맞는 태양광 전문업체 상담을<br class="mo-only">연결합니다.
@@ -195,26 +184,14 @@
       <div class="hook-content">
         <h2>비어 있는 지붕과 부지,<br class="mo-only"> 그냥 두기엔 아깝지 않으신가요?</h2>
         
-        <!-- PC Description -->
-        <p class="hook-desc pc-only-block">
-          공장·창고·축사·상가처럼 넓은 지붕이나 유휴 부지가 있다면<br class="pc-only">
-          전기요금 절감, 지붕 임대, 발전사업 가능성을 조건에 따라 검토해볼 수 있습니다.
-        </p>
-        <!-- MO Description -->
-        <p class="hook-desc mo-only-block">
-          공장·창고·축사처럼 넓은 공간이라면<br class="mo-only">
-          태양광 활용 가능성을 검토해볼 수 있습니다.
+        <p class="hook-desc">
+          <span class="pc-only">공장·창고·축사·상가처럼 넓은 지붕이나 유휴 부지가 있다면<br class="pc-only">전기요금 절감, 지붕 임대, 발전사업 가능성을 조건에 따라 검토해볼 수 있습니다.</span>
+          <span class="mo-only">공장·창고·축사처럼 넓은 공간이라면<br class="mo-only">태양광 활용 가능성을 검토해볼 수 있습니다.</span>
         </p>
 
-        <!-- PC Guide -->
-        <p class="hook-guide pc-only-block">
-          솔라링크는 공간 조건을 확인한 뒤,<br class="pc-only">
-          상담 가능한 태양광 전문업체 연결을 도와드립니다.
-        </p>
-        <!-- MO Guide -->
-        <p class="hook-guide mo-only-block">
-          공간 조건 확인 후<br class="mo-only">
-          전문업체 상담을 연결합니다.
+        <p class="hook-guide">
+          <span class="pc-only">솔라링크는 공간 조건을 확인한 뒤,<br class="pc-only">상담 가능한 태양광 전문업체 연결을 도와드립니다.</span>
+          <span class="mo-only">공간 조건 확인 후<br class="mo-only">전문업체 상담을 연결합니다.</span>
         </p>
       </div>
     </div>
@@ -225,8 +202,8 @@
   <!-- 04. 공간 조건별 상담 안내 섹션 (메인 전용 2x2 그리드) -->
   <section class="section-types section-padding" id="section-types">
     <div class="container">
-      <!-- Mobile Intro Text Block (Only visible on Mobile) -->
-      <div class="space-mo-intro mo-only-block">
+      <!-- Mobile Intro Text Block (Only visible on Mobile, hidden from crawlers to avoid duplication) -->
+      <div class="space-mo-intro mo-only-block" aria-hidden="true">
         <span class="space-mo-label">공간별 상담 유형</span>
         <h2>공간마다 가능한 방식은 다릅니다.</h2>
         <p class="space-mo-desc">
@@ -296,20 +273,21 @@
       <div class="section-header" style="text-align: center; margin-bottom: 30px;">
         <span class="panel-badge" style="margin-bottom: 15px;">지붕 임대형 태양광</span>
         
-        <!-- PC Title/Desc -->
-        <h2 class="pc-only-block">지붕 임대형 태양광,<br>예상 수익을 먼저 확인해보세요.</h2>
-        <p class="pc-only-block">공장·창고·축사처럼 넓은 지붕이 있다면 조건에 따라 지붕 임대형 태양광 상담을 검토할 수 있습니다.</p>
-        
-        <!-- MO Title/Desc -->
-        <h2 class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">예상 수익,<br>먼저 확인해보세요.</h2>
-        <p class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">넓은 지붕이 있다면<br>임대형 태양광 상담을 검토할 수 있습니다.</p>
+        <h2 style="word-break: keep-all; overflow-wrap: normal;">
+          <span class="pc-only">지붕 임대형 태양광,<br></span>예상 수익<span class="pc-only">을</span><span class="mo-only">,</span> 먼저 확인해보세요.
+        </h2>
+        <p style="word-break: keep-all; overflow-wrap: normal;">
+          <span class="pc-only">공장·창고·축사처럼 넓은 지붕이 있다면 조건에 따라 지붕 임대형 태양광 상담을 검토할 수 있습니다.</span>
+          <span class="mo-only">넓은 지붕이 있다면<br>임대형 태양광 상담을 검토할 수 있습니다.</span>
+        </p>
       </div>
 
       <!-- Slot Machine Revenue Panel -->
       <div class="revenue-number-panel">
         <div class="revenue-number-wrapper" aria-label="예상 임대수익 47,500,000원">
-          <span class="number-label pc-only">예상 임대수익 기준 예시</span>
-          <span class="number-label mo-only">예상 임대수익 예시</span>
+          <span class="number-label">
+            예상 임대수익 <span class="pc-only">기준 </span>예시
+          </span>
           
           <div class="slots-container">
             <!-- Digit 4 -->
@@ -365,8 +343,9 @@
             <span class="slot-unit">원</span>
           </div>
           
-          <p class="revenue-basis pc-only-block">약 100평(330㎡) · 50kW 기준</p>
-          <p class="revenue-basis mo-only-block">100평 · 50kW 기준</p>
+          <p class="revenue-basis">
+            <span class="pc-only">약 </span>100평<span class="pc-only">(330㎡)</span> · 50kW 기준
+          </p>
         </div>
       </div>
 
@@ -374,18 +353,13 @@
       <div class="revenue-footer">
         <a href="#consult-form" class="btn btn-primary">내 지붕 수익 가능성 확인하기</a>
         
-        <!-- PC Guide / Disclaimer -->
-        <p class="revenue-footer-guide pc-only-block">면적·주소·건물 유형을 남겨주시면 기본 조건 확인 후 상담 연결을 도와드립니다.</p>
-        <p class="revenue-disclaimer pc-only-block">
-          ※ 위 금액은 약 100평(330㎡), 50kW 기준 예시이며, 실제 수익·설치 가능 여부·계약 조건은 지붕 면적, 구조, 지역, 계통연계, 전문업체 상담 결과에 따라 달라질 수 있습니다.
+        <p class="revenue-footer-guide" style="word-break: keep-all; overflow-wrap: normal;">
+          <span class="pc-only">면적·주소·건물 유형을 남겨주시면 기본 조건 확인 후 상담 연결을 도와드립니다.</span>
+          <span class="mo-only">간단한 건물 정보만 남기면<br>기본 조건 확인 후 상담을 연결합니다.</span>
         </p>
-        
-        <!-- MO Guide / Disclaimer -->
-        <p class="revenue-footer-guide mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">
-          간단한 건물 정보만 남기면<br>기본 조건 확인 후 상담을 연결합니다.
-        </p>
-        <p class="revenue-disclaimer mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">
-          ※ 금액은 기준 예시이며, 실제 조건은 현장 및 상담 결과에 따라 달라질 수 있습니다.
+        <p class="revenue-disclaimer" style="word-break: keep-all; overflow-wrap: normal;">
+          <span class="pc-only">※ 위 금액은 약 100평(330㎡), 50kW 기준 예시이며, 실제 수익·설치 가능 여부·계약 조건은 지붕 면적, 구조, 지역, 계통연계, 전문업체 상담 결과에 따라 달라질 수 있습니다.</span>
+          <span class="mo-only">※ 금액은 기준 예시이며, 실제 조건은 현장 및 상담 결과에 따라 달라질 수 있습니다.</span>
         </p>
       </div>
     </div>
@@ -467,13 +441,10 @@
     <div class="container">
       <div class="section-header" style="max-width: 600px; margin: 0 auto 50px auto; text-align: center;">
         
-        <!-- PC Title/Desc -->
-        <h2 class="pc-only-block">신청부터 상담 연결까지,<br>이렇게 진행됩니다.</h2>
-        <p class="pc-only-block">간단한 건물 정보를 남겨주시면 기본 조건 확인 후 상담 가능한 전문업체 연결을 도와드립니다.</p>
-        
-        <!-- MO Title/Desc -->
-        <h2 class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">신청부터 상담 연결까지,<br>이렇게 진행됩니다.</h2>
-        <p class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">간단한 건물 정보를 남겨주시면<br>기본 조건 확인 후 상담 가능한 전문업체 연결을 도와드립니다.</p>
+        <h2 style="word-break: keep-all; overflow-wrap: normal;">신청부터 상담 연결까지,<br>이렇게 진행됩니다.</h2>
+        <p style="word-break: keep-all; overflow-wrap: normal;">
+          간단한 건물 정보를 남겨주시면 <br class="mo-only">기본 조건 확인 후 상담 가능한 전문업체 연결을 도와드립니다.
+        </p>
       </div>
       
       <div class="steps-container">
@@ -538,23 +509,28 @@
         <div class="trust-hero-left">
           <span class="trust-hero-label">부담 없는 조건 확인</span>
           
-          <!-- PC Left Text Area -->
-          <h2 class="pc-only-block">설치 결정 전,<br>내 건물 조건부터 확인해보세요.</h2>
-          <p class="trust-hero-main-text pc-only-block">솔라링크는 직접 시공사가 아닙니다. 건물 조건을 확인한 뒤 상담 가능한 태양광 전문업체 연결을 도와드립니다.</p>
-          <p class="trust-hero-sub-text pc-only-block">면적, 지붕 구조, 소유 여부, 전기 사용량, 계통연계 조건에 따라 상담 방향은 달라질 수 있습니다.</p>
-          
-          <!-- MO Left Text Area -->
-          <h2 class="mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">설치 결정 전,<br>조건 확인부터 시작하세요.</h2>
-          <p class="trust-hero-main-text mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">건물 조건을 먼저 확인한 뒤<br>상담 가능한 전문업체 연결을 도와드립니다.</p>
-          <p class="trust-hero-sub-text mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">면적·구조·소유 여부에 따라<br>상담 방향은 달라질 수 있습니다.</p>
+          <h2 style="word-break: keep-all; overflow-wrap: normal;">
+            설치 결정 전,<br>
+            <span class="pc-only">내 건물 조건부터 확인해보세요.</span>
+            <span class="mo-only">조건 확인부터 시작하세요.</span>
+          </h2>
+          <p class="trust-hero-main-text" style="word-break: keep-all; overflow-wrap: normal;">
+            <span class="pc-only">솔라링크는 직접 시공사가 아닙니다. 건물 조건을 확인한 뒤 상담 가능한 태양광 전문업체 연결을 도와드립니다.</span>
+            <span class="mo-only">건물 조건을 먼저 확인한 뒤<br>상담 가능한 전문업체 연결을 도와드립니다.</span>
+          </p>
+          <p class="trust-hero-sub-text" style="word-break: keep-all; overflow-wrap: normal;">
+            <span class="pc-only">면적, 지붕 구조, 소유 여부, 전기 사용량, 계통연계 조건에 따라 상담 방향은 달라질 수 있습니다.</span>
+            <span class="mo-only">면적·구조·소유 여부에 따라<br>상담 방향은 달라질 수 있습니다.</span>
+          </p>
           
           <div class="trust-hero-cta-wrapper">
             <a href="#consult-form" class="trust-hero-btn">내 건물 상담 가능성 확인하기</a>
           </div>
           
-          <!-- PC / MO Notices -->
-          <p class="trust-hero-notice pc-only-block">실제 진행 여부는 현장 조건과 전문업체 상담 결과에 따라 결정됩니다.</p>
-          <p class="trust-hero-notice mo-only-block" style="word-break: keep-all; overflow-wrap: normal;">진행 여부는 조건 확인 후 결정됩니다.</p>
+          <p class="trust-hero-notice" style="word-break: keep-all; overflow-wrap: normal;">
+            <span class="pc-only">실제 진행 여부는 현장 조건과 전문업체 상담 결과에 따라 결정됩니다.</span>
+            <span class="mo-only">진행 여부는 조건 확인 후 결정됩니다.</span>
+          </p>
         </div>
 
         <!-- Right Area: 3 Reassurance point cards (Glassmorphic) -->

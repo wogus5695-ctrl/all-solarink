@@ -239,7 +239,7 @@
         <a href="/solar-guide" class="nav-link">설치 가이드</a>
       </nav>
       <div class="header-right">
-        <a href="tel:010-0000-0000" class="btn btn-outline btn-sm">전화문의</a>
+        <a href="/#consult-form" class="btn btn-primary btn-sm">무료 상담 신청</a>
         <button class="hamburger" aria-label="메뉴 열기">
           <span></span>
           <span></span>
@@ -261,8 +261,8 @@
       <a href="/sitemap-solar" class="drawer-link">동적 허브</a>
     </div>
     <div class="drawer-footer">
-      <a href="tel:010-0000-0000" class="btn btn-primary btn-sm" style="width: 100%;">
-        전화상담 연결
+      <a href="/#consult-form" class="btn btn-primary btn-sm" style="width: 100%;">
+        무료 상담 신청
       </a>
     </div>
   </div>
@@ -312,6 +312,11 @@
           <p class="footer-info">
             본 사이트는 태양광 설치를 검토 중인 건물 및 부지 소유주분들을 위해 맞춤형 시공업체를 매칭해 드리는 견적/상담 연결 플랫폼입니다.
           </p>
+          <!-- Business details expandable panel -->
+          <div id="footer-business-info" class="footer-business-panel hidden" style="margin-top: 15px; font-size: 0.8rem; color: var(--color-gray-400); line-height: 1.6; border-left: 2px solid var(--color-gray-600); padding-left: 12px; transition: all 0.3s ease;">
+            <strong>올케어 서비스</strong> | 대표: 김재현<br>
+            사업자등록번호: 405-15-02677
+          </div>
         </div>
         <div class="footer-links">
           <div class="footer-link-group">
@@ -326,8 +331,8 @@
           <div class="footer-link-group">
             <h4>고객 안내 및 문의</h4>
             <ul>
-              <li>대표 번호: 010-0000-0000</li>
-              <li><a href="#" onclick="alert('광고 및 시공사 파트너 입점 제휴 문의는 support@solarlink.co.kr 로 메일을 보내주시기 바랍니다.'); return false;">광고/제휴 문의</a></li>
+              <li><a href="#" onclick="event.preventDefault(); const p = document.getElementById('footer-business-info'); if(p) p.classList.toggle('hidden');" style="font-weight: 600; color: var(--color-blue);">사업자 정보 확인</a></li>
+              <li><a href="#" onclick="alert('광고 및 시공사 파트너 입점 제휴 문의는 kkkjjh5695@naver.com 로 메일을 보내주시기 바랍니다.'); return false;">광고/제휴 문의</a></li>
               <li><a href="/privacy">개인정보처리방침</a></li>
               <li><a href="/third-party-consent">개인정보 제3자 제공 안내</a></li>
             </ul>

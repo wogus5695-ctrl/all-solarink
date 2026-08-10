@@ -81,34 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Centralized Phone Number Management (Loaded dynamically from window.SOLAR_CONFIG)
-  const config = window.SOLAR_CONFIG || {
-    BRAND_NAME: "솔라링크",
-    PHONE_DISPLAY: "010-0000-0000",
-    PHONE_TEL: "tel:01000000000"
-  };
-
-  const PHONE_NUMBER = config.PHONE_DISPLAY;
-  const PHONE_TEL = config.PHONE_TEL;
-
+  // 5. Centralized Safeguard (Replaces any leftover tel links dynamically)
   const updateTelLinks = () => {
     document.querySelectorAll('a[href^="tel:"]').forEach(link => {
       link.setAttribute('href', '#consult-form');
       link.textContent = '무료 상담 신청';
     });
-
-    // Update footer contacts representation as plain text (non-clickable)
-    const footerLinks = document.querySelectorAll('.footer-links ul li');
-    footerLinks.forEach(li => {
-      if (li.textContent.includes('대표 번호') || li.textContent.includes('010-0000-0000')) {
-        li.innerHTML = `대표 번호: ${PHONE_NUMBER}`;
-      }
-    });
   };
 
   updateTelLinks();
-  // Expose to window for dynamic modals
-  window.PHONE_NUMBER = PHONE_NUMBER;
-  window.PHONE_TEL = PHONE_TEL;
 });
 

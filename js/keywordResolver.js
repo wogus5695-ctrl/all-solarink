@@ -403,9 +403,27 @@ document.addEventListener('DOMContentLoaded', () => {
       if (section) section.classList.add('hidden');
     });
 
-    // Show 404 block
-    const notFoundSection = document.getElementById('section-not-found');
-    if (notFoundSection) notFoundSection.classList.remove('hidden');
+    // Dynamically create and show 404 block if it doesn't exist
+    let notFoundSection = document.getElementById('section-not-found');
+    if (!notFoundSection) {
+      notFoundSection = document.createElement('section');
+      notFoundSection.id = 'section-not-found';
+      notFoundSection.className = 'subpage-container';
+      notFoundSection.style.cssText = 'text-align: center; padding-top: 120px; padding-bottom: 120px;';
+      notFoundSection.innerHTML = `
+        <div class="container" style="max-width: 600px;">
+          <div style="font-size: 5rem; line-height: 1; font-weight: 850; color: var(--color-gray-300); margin-bottom: 20px;">404</div>
+          <h2 style="font-size: 1.75rem; color: var(--color-navy); margin-bottom: 15px;">요청하신 태양광 상담 페이지를 찾을 수 없습니다.</h2>
+          <p style="color: var(--color-gray-500); font-size: 1rem; margin-bottom: 35px;">입력하신 URL 경로가 잘못되었거나 존재하지 않는 상담 지역/키워드 매핑 정보입니다.</p>
+          <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="/" class="btn btn-outline">메인으로 이동</a>
+            <a href="#consult-form" class="btn btn-primary" onclick="const f = document.getElementById('consult-form'); if(f) f.classList.remove('hidden');">상담 신청하기</a>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(notFoundSection);
+    }
+    notFoundSection.classList.remove('hidden');
 
     // Rewrite title for 404
     document.title = `페이지를 찾을 수 없습니다 | 솔라링크`;
