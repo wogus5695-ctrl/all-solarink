@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/solar-guide", "destination": "/solar-guide.html" },
+    { "source": "/sitemap-solar", "destination": "/sitemap-solar.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/third-party-consent", "destination": "/third-party-consent.html" }
+  ]
+}
