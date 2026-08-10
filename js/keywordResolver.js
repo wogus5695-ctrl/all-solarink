@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       canonicalLink.setAttribute('rel', 'canonical');
       document.head.appendChild(canonicalLink);
     }
-    canonicalLink.setAttribute('href', 'https://www.solarlink.co.kr/');
+    canonicalLink.setAttribute('href', 'https://www.allhasugu.co.kr/');
 
     // Robots meta setup for Main page
     let robotsMeta = document.querySelector('meta[name="robots"]');
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateOGMeta(
       '솔라링크 | 비어 있는 지붕·부지 태양광 상담 연결',
       '공장·창고·축사·건물 옥상 등 넓은 공간의 태양광 활용 가능성을 확인해보세요. 솔라링크는 조건 확인 후 전문업체 상담 연결을 돕습니다.',
-      'https://www.solarlink.co.kr/'
+      'https://www.allhasugu.co.kr/'
     );
 
     // Schema injection for Main page
@@ -63,16 +63,23 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // Parse kParam (e.g. "화성-공장태양광")
-  const parts = kParam.split('-');
-  
-  if (parts.length !== 2) {
+  // Parse kParam safely (e.g. "원주-태양광업체")
+  let decodedParam = '';
+  try {
+    decodedParam = decodeURIComponent(kParam).trim();
+  } catch (e) {
     showNotFound();
     return;
   }
 
-  const urlRegion = decodeURIComponent(parts[0]).trim();
-  const urlKeyword = decodeURIComponent(parts[1]).trim();
+  const hyphenIndex = decodedParam.indexOf('-');
+  if (hyphenIndex === -1) {
+    showNotFound();
+    return;
+  }
+
+  const urlRegion = decodedParam.substring(0, hyphenIndex).trim();
+  const urlKeyword = decodedParam.substring(hyphenIndex + 1).trim();
 
   // 1. Find matching region
   const region = window.SOLAR_REGIONS.find(r => r.urlRegion === urlRegion);
@@ -90,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Valid dynamic landing page resolved!
-  const displayKeyword = region.regionName + " " + keyword.label;
+  let displayKeyword = region.regionName + " " + keyword.label;
   const regionName = region.regionName;
   const keywordLabel = keyword.label;
   const keywordType = keyword.type;
@@ -218,13 +225,72 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 8. Update SEO Head elements for valid dynamic landing page
-  document.title = `${displayKeyword} 상담 | 비어 있는 공간을 가치 있게 - 솔라링크`;
-  
+  // 8. Update SEO Head elements for valid dynamic landing page with custom mappings
+  const displayRegion = urlRegion.replace(/-/g, ' ');
+  const displayKeywordPart = urlKeyword.replace(/-/g, ' ');
+  displayKeyword = displayRegion + " " + displayKeywordPart;
+
+  let pageTitle = '';
+  switch (urlKeyword) {
+    case '태양광업체':
+      pageTitle = `${displayRegion} 태양광업체 상담 | 조건 확인 후 전문업체 연결 - 솔라링크`;
+      break;
+    case '태양광설치':
+      pageTitle = `${displayRegion} 태양광설치 상담 | 지붕·부지 활용 가능성 확인 - 솔라링크`;
+      break;
+    case '건물태양광':
+      pageTitle = `${displayRegion} 건물태양광 상담 | 유휴 공간을 가치 있게 - 솔라링크`;
+      break;
+    case '옥상태양광':
+      pageTitle = `${displayRegion} 옥상태양광 상담 | 넓은 옥상 활용 가능성 확인 - 솔라링크`;
+      break;
+    case '공장태양광':
+      pageTitle = `${displayRegion} 공장태양광 상담 | 전기 사용 건물 조건 확인 - 솔라링크`;
+      break;
+    case '지붕태양광임대':
+      pageTitle = `${displayRegion} 지붕태양광임대 상담 | 예상 임대수익 가능성 확인 - 솔라링크`;
+      break;
+    case '태양광발전사업':
+      pageTitle = `${displayRegion} 태양광발전사업 상담 | 부지 활용 가능성 확인 - 솔라링크`;
+      break;
+    default:
+      pageTitle = `${displayKeyword} 상담 | 비어 있는 공간을 가치 있게 - 솔라링크`;
+      break;
+  }
+
+  let pageDesc = '';
+  switch (urlKeyword) {
+    case '태양광업체':
+      pageDesc = `${displayRegion}에서 공장·창고·축사·건물 옥상 등 넓은 공간을 보유하고 있다면 태양광업체 상담 가능성을 확인해보세요. 솔라링크가 조건 확인 후 전문업체 상담 연결을 돕습니다.`;
+      break;
+    case '태양광설치':
+      pageDesc = `${displayRegion} 건물 지붕·부지의 태양광설치 가능성을 먼저 확인해보세요. 면적, 구조, 소유 여부, 계통연계 조건을 기준으로 상담 가능한 전문업체 연결을 돕습니다.`;
+      break;
+    case '건물태양광':
+      pageDesc = `${displayRegion} 공장·상가·창고 건물의 태양광 활용 가능성을 검토해보세요. 솔라링크는 직접 시공사가 아니라 조건 확인 후 상담 연결을 돕는 플랫폼입니다.`;
+      break;
+    case '옥상태양광':
+      pageDesc = `${displayRegion} 건물 옥상의 태양광 활용 가능성을 확인해보세요. 지붕 구조, 면적, 소유 여부를 기준으로 전문업체 상담 연결을 도와드립니다.`;
+      break;
+    case '공장태양광':
+      pageDesc = `${displayRegion} 공장 지붕의 태양광 상담 가능성을 확인해보세요. 전기 사용량과 건물 조건을 기준으로 상담 가능한 전문업체 연결을 돕습니다.`;
+      break;
+    case '지붕태양광임대':
+      pageDesc = `${displayRegion}에서 비어 있는 지붕을 보유하고 있다면 지붕태양광임대 상담 가능성을 확인해보세요. 조건 확인 후 전문업체 상담 연결을 도와드립니다.`;
+      break;
+    case '태양광발전사업':
+      pageDesc = `${displayRegion} 유휴 부지나 넓은 지붕의 태양광발전사업 가능성을 검토해보세요. 조건 확인 후 상담 가능한 전문업체 연결을 돕습니다.`;
+      break;
+    default:
+      pageDesc = `${displayRegion}에서 넓은 지붕·부지를 보유하고 있다면 ${displayKeywordPart} 상담 가능성을 확인해보세요. 솔라링크가 조건 확인 후 전문업체 상담 연결을 돕습니다.`;
+      break;
+  }
+
+  document.title = pageTitle;
+
   const metaDesc = document.querySelector('meta[name="description"]');
-  const descString = `${regionName}에서 공장·창고·축사·건물 옥상 등 넓은 지붕·부지를 보유하고 있다면 ${keywordLabel} 상담 가능성을 확인해보세요. 솔라링크가 조건 확인 후 전문업체 상담 연결을 돕습니다.`;
   if (metaDesc) {
-    metaDesc.setAttribute('content', descString);
+    metaDesc.setAttribute('content', pageDesc);
   }
 
   // Canonical setup
@@ -234,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     canonicalLink.setAttribute('rel', 'canonical');
     document.head.appendChild(canonicalLink);
   }
-  const pageCanonicalUrl = `https://www.solarlink.co.kr/?k=${encodeURIComponent(urlRegion)}-${encodeURIComponent(urlKeyword)}`;
+  const pageCanonicalUrl = `https://www.allhasugu.co.kr/?k=${encodeURIComponent(urlRegion)}-${encodeURIComponent(urlKeyword)}`;
   canonicalLink.setAttribute('href', pageCanonicalUrl);
 
   // Robots setup
@@ -248,8 +314,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // OG Meta setup
   updateOGMeta(
-    `${displayKeyword} 상담 | 비어 있는 공간을 가치 있게 - 솔라링크`,
-    descString,
+    pageTitle,
+    pageDesc,
     pageCanonicalUrl
   );
 
